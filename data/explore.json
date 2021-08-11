@@ -6,57 +6,57 @@
     },
     {
       "title": "Chapters",
-      "image_source": "{{ url_for('static', filename='images/chapters_thumbnail.png') }}",
+      "image_source": "static/images/chapters_thumbnail.png",
       "url": "#"
     },
     {
       "title": "Movies",
-      "image_source": "{{ url_for('static', filename='images/movies_thumbnail.png') }}",
+      "image_source": "static/images/movies_thumbnail.png",
       "url": "#"
     },
     {
       "title": "Characters",
-      "image_source": "{{ url_for('static', filename='images/characters_thumbnail.png') }}",
+      "image_source": "static/images/characters_thumbnail.png",
       "url": "#"
     },
     {
       "title": "History",
-      "image_source": "{{ url_for('static', filename='images/history_thumbnail.png') }}",
+      "image_source": "static/images/history_thumbnail.png",
       "url": "#"
     },
     {
       "title": "Atlas",
-      "image_source": "{{ url_for('static', filename='images/atlas_thumbnail.png') }}",
+      "image_source": "static/images/atlas_thumbnail.png",
       "url": "#"
     },
     {
       "title": "Zoology",
-      "image_source": "{{ url_for('static', filename='images/zoology_thumbnail.png') }}",
+      "image_source": "static/images/zoology_thumbnail.png",
       "url": "#"
     },
     {
       "title": "Cast",
-      "image_source": "{{ url_for('static', filename='images/cast_thumbnail.png') }}",
+      "image_source": "static/images/cast_thumbnail.png",
       "url": "#"
     },
     {
       "title": "Culture",
-      "image_source": "{{ url_for('static', filename='images/culture_thumbnail.png') }}",
+      "image_source": "static/images/culture_thumbnail.png",
       "url": "#"
     },
     {
       "title": "Author",
-      "image_source": "{{ url_for('static', filename='images/author_thumbnail.png') }}",
+      "image_source": "static/images/author_thumbnail.png",
       "url": "#"
     },
     {
       "title": "News",
-      "image_source": "{{ url_for('static', filename='images/news_thumbnail.png') }}",
+      "image_source": "static/images/news_thumbnail.png",
       "url": "#"
     },
     {
       "title": "Merchandise",
-      "image_source": "{{ url_for('static', filename='images/merch_thumbnail.png') }}",
+      "image_source": "static/images/merch_thumbnail.png",
       "url": "#"
     }
 ]
