@@ -10,7 +10,7 @@ app = Flask(__name__)
 def index():
     return render_template("index.html")
 
-
+#Route for the Explore page connected to the respective Json data page
 @app.route("/explore")
 def explore():
         data = []
@@ -23,7 +23,7 @@ def explore():
 def media():
     return render_template("media.html", page_title="Media")
 
-
+#Route for the Theories page connected to the respective Json data page
 @app.route("/theories")
 def theories():
     data = []
@@ -31,7 +31,7 @@ def theories():
         data = json.load(json_data)
     return render_template("theories.html", page_title="Theory", theories=data)
 
-
+#Route for the EEpisodes page connected to the respective Json data page
 @app.route("/episodes")
 def episodes():
     data = []
