@@ -1,4 +1,5 @@
 import os
+import json
 from flask import Flask, render_template
 
 app = Flask(__name__)
@@ -12,7 +13,10 @@ def index():
 
 @app.route("/explore")
 def explore():
-    return render_template("explore.html")
+        data = []
+        with open("data/explore.json", "r") as json_data:
+            data = json.load(json_data)
+        return render_template("explore.html", page_title="About", explore=data)
 
 
 @app.route("/media")
