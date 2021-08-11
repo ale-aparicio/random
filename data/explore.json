@@ -1,4 +1,7 @@
 [
+  {
+    "banner": "{{ url_for('static', filename='images/Crew_Pic.jpg') }}"
+  },
     {
       "title": "Episodes",
       "image_source": "{{ url_for('static', filename='images/episodes_thumbnail.png') }}",
