@@ -16,7 +16,7 @@ def explore():
         data = []
         with open("data/explore.json", "r") as json_data:
             data = json.load(json_data)
-        return render_template("explore.html", page_title="About", explore=data)
+        return render_template("explore.html", page_title="Explore", explore=data)
 
 
 @app.route("/media")

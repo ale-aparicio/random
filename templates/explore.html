@@ -1,32 +1,35 @@
 {% extends "base.html" %}
 {% block content %}
 
-    {% for subject in explore %}
-        <!---Banner-->
-        <img src="{{ subject.banner }}" alt="Banner Image" class="banner">
-        <!---Sections-->
-        <div class="bg-page">
-            <div>
-                <h1 class="col-12 page-title">Explore</h1>
-            </div>
-            
+    <!---Banner-->
+    <img src="{{ url_for('static', filename='images/straw_hat_crew_pic.jpg') }}" alt="Banner Image" class="banner">
+
+    
+    <!---Sections-->
+    <div class="bg-page">
+        <div>
+            <h1 class="col-12 page-title">{{ page_title }}</h1>
+        </div>
+
+        {% for subject in explore %}
+
             {% if loop.index % 2 != 0 %}
 
                 <div  class="col-md-12 d-inline-flex explore-content">
                     <div class="col-sm-6 btn-container">
-                        <a href="" class="explore-btn"><img src="{{ subject.image_source }}" alt="Episodes Btn"></a>
-                        <p>{{ subject.title}}</p>
+                        <a href="" class="explore-btn"><img src="{{ subject.image_source }}" alt="Explore Btn"></a>
+                        <p>{{ loop.index }}.{{ subject.title}}</p>
                     </div>
                     <div class="col-sm-6 btn-container">
-                        <a href="" class="explore-btn"><img src="{{ subject.image_source }}" alt="Chapters Btn"></a>
-                        <p>{{ subject.title}}</p>
+                        <a href="" class="explore-btn"><img src="{{ subject.image_source }}" alt="Explore Btn"></a>
+                        <p>{{ loop.index }}.{{ subject.title}}</p>
                     </div>
                 </div>
                 
             {% endif %}
 
-        </div>
-
-    {% endfor %}
+        {% endfor %}
+        
+    </div>
 
 {% endblock %}
