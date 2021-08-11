@@ -21,12 +21,12 @@ def explore():
 
 @app.route("/media")
 def media():
-    return render_template("media.html")
+    return render_template("media.html", page_title="Media")
 
 
 @app.route("/theories")
 def theories():
-    return render_template("theories.html")
+    return render_template("theories.html", page_title="Theories")
 
 
 #remember to change debug = true to false

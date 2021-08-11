@@ -1,73 +1,68 @@
 {% extends "base.html" %}
 {% block content %}
-    <div class="row bg-page">
-        <div class="col-md-8 sections">
-            <div class="box">
-                <img src="{{ url_for('static', filename='images/Crew_Pic.jpg') }}" alt="Banner Image" class="box-img">
-                <ul>
-                    <li>
-                        <h2 class="box-text">
-                            Welcome!
-                        </h2>
-                    </li>
-                    <li>
-                        <p class="box-text">
-                            Welcome to Straw Facts! Where you can find all things One Piece. Whether you’re looking for
-                            a specific piece of information or delving deep into this magnificent world we have you
-                            covered! You can find all sorts of information regarding the world of One Piece from
-                            individual characters to the iconic crews and groups of the world.
-                        </p>
-                    </li>
-                </ul>
-            </div>
+    <!---Banner-->
+    <img src="{{ url_for('static', filename='images/media-banner.jpg') }}" alt="Banner Image" class="banner">
+    <!---Sections-->
+    <div class="bg-page">
+        <div>
+            <h1 class="col-12 page-title">{{ page_title }}</h1>
         </div>
-        <div class="col-md-4 sections-2">
-            <div class="box">
-                <ul>
-                    <li>
-                        <h4 class="box-text">
-                            News!
-                        </h4>
-                    </li>
-                    <li>
-                        <p class="box-text news">
-                            Chapter 1019: "Heliceratops"
-                            With Sasaki's forces now defected, Franky is able to take on the Tobiroppo one-on-one. The
-                            two of them fight ferociously, with Sasaki showing the ability to make his triceratops frill
-                            spin rapidly and become a weapon as well as lift himself up into the air. Sasaki unleashes a
-                            powerful finishing blow against the General Franky and greatly damages it, but Franky
-                            manages to eject from it in time. He then unleashes a "Radical Beam" which strikes Sasaki in
-                            the stomach and brings him down.
-                            <br />
-                            <br />
-                            On the Skull Dome roof, Yamato has entered a Zoan hybrid form whilst doing battle with
-                            Kaido.
-                        </p>
-                    </li>
-                </ul>
+        <div class="row">
+            <div class="col-md-5 sections">
+                <div class="box">
+                    <ul>
+                        <li>
+                            <h4 class="box-text">
+                                Where can you watch/read?
+                            </h4>
+                        </li>
+                        <li>
+                            <h5 class="box-text">Watch :</h5>
+                            <p class="box-text media">
+                                So where can you watch One Piece?
+                                You can find One Piece on Crunchyroll,
+                                on Japanese Netflix if you have a vpn. As well as third party sites such as 9anime.to
+                            </p>
+                        </li>
+                        <li>
+                            <h5 class="box-text">Read :</h5>
+                            <p class="box-text media">
+                                So where can you read One Piece?
+                                Traditionally you can find manga such as One Piece in your local comic book store or
+                                book store. If you find yourself not wanting to spend money or you just don’t have acess
+                                to the manga’s you can read it in sites such as myonepiecemanga.com
+                            </p>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div class="mt-15 box">
-                <ul>
-                    <li>
-                        <h4 class="box-text">
-                            Categories
-                        </h4>
-                    </li>
-                    <li>
-                        <a href="#" class="box-links categories">Episodes</a>
-                        <a href="#" class="box-links categories right">Chapters</a>
-                        <a href="#" class="box-links categories">Movies</a>
-                        <a href="#" class="box-links categories right">Characters</a>
-                        <a href="#" class="box-links categories">History</a>
-                        <a href="#" class="box-links categories right">Atlas</a>
-                        <a href="#" class="box-links categories">Zoology</a>
-                        <a href="#" class="box-links categories right">Cast</a>
-                        <a href="#" class="box-links categories">Culture</a>
-                        <a href="#" class="box-links categories right">Author</a>
-                        <a href="#" class="box-links categories">News</a>
-                        <a href="#" class="box-links categories right">Merch</a>
-                    </li>
-                </ul>
+            <div class="col-md-7 sections-2">
+                <h2 class="box-text">Watch</h2>
+                <div  class="col-md-12 d-inline-flex explore-content">
+                    <div class="col-sm-6 btn-container">
+                        <a href="https://www.crunchyroll.com/one-piece" class="explore-btn"><img src="{{ url_for('static', filename='images/crunchyroll.png') }}" alt="Crunchyroll Btn" target=”_blank”></a>
+                    </div>
+                    <div class="col-sm-6 btn-container">
+                        <a href="https://www.funimation.com/shows/one-piece/?gclid=CjwKCAjwmK6IBhBqEiwAocMc8qovfaT079ShOwcYLrrVzg2q0smfPTMEQwUajLDcR1gkuzEaIRS5IhoCcZEQAvD_BwE" class="explore-btn" target=”_blank”><img src="{{ url_for('static', filename='images/funimaiton.png') }}" alt="Funimation Btn"></a>
+                    </div>
+                </div>
+                <div  class="col-md-12 d-inline-flex explore-content">
+                    <div class="col-sm-6 btn-container">
+                        <a href="https://9anime.to/watch/one-piece.ov8/ep-1" class="explore-btn"><img src="{{ url_for('static', filename='images/9anime.png') }}" alt="9Anime Btn" target=”_blank”></a>
+                    </div>
+                    <div class="col-sm-6 btn-container">
+                        <a href="https://kissanime.mx/watch/one-piece-JeL-episode-1/" class="explore-btn"><img src="{{ url_for('static', filename='images/KissAnime.png') }}" alt="KissAnime Btn" target=”_blank”></a>
+                    </div>
+                </div>
+                <h2 class="box-text">Read</h2>
+                <div  class="col-md-12 d-inline-flex explore-content">
+                    <div class="col-sm-6 btn-container">
+                        <a href="https://myonepiecemanga.com/" class="explore-btn"><img src="{{ url_for('static', filename='images/read_thumbnail_1.png') }}" alt="Read Btn" target=”_blank”></a>
+                    </div>
+                    <div class="col-sm-6 btn-container">
+                        <a href="https://online-one-piece.com/" class="explore-btn"><img src="{{ url_for('static', filename='images/read_thumbnail_2.png') }}" alt="Read Btn" target=”_blank”></a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
