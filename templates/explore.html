@@ -15,21 +15,27 @@
 
             {% if loop.index % 2 != 0 %}
 
+                
+
                 <div  class="col-md-12 d-inline-flex explore-content">
                     <div class="col-sm-6 btn-container">
                         <a href="" class="explore-btn"><img src="{{ subject.image_source }}" alt="Explore Btn"></a>
-                        <p>{{ loop.index }}.{{ subject.title}}</p>
+                        <p>{{ subject.title}}</p>
                     </div>
+            {% else %}
+                    
+                
+
                     <div class="col-sm-6 btn-container">
                         <a href="" class="explore-btn"><img src="{{ subject.image_source }}" alt="Explore Btn"></a>
-                        <p>{{ loop.index }}.{{ subject.title}}</p>
+                        <p>{{ subject.title}}</p>
                     </div>
                 </div>
                 
             {% endif %}
 
         {% endfor %}
-        
+
     </div>
 
 {% endblock %}
