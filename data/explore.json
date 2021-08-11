@@ -1,0 +1,8 @@
+[
+    {
+      "title": "Episodes",
+      "image_source": "{{ url_for('static', filename='images/') }}",
+      "url": ""
+    },
+    
+  ]
