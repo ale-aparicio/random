@@ -2,7 +2,7 @@
     {
       "title": "Episodes",
       "image_source": "static/images/episodes_thumbnail.png",
-      "url": "{{ url_for('episodes') }}"
+      "url": "templates/episodes.html"
     },
     {
       "title": "Chapters",

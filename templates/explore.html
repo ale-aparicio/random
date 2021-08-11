@@ -17,14 +17,14 @@
 
                 <div  class="col-md-12 d-inline-flex explore-content">
                     <div class="col-sm-6 btn-container">
-                        <a href="" class="explore-btn"><img src="{{ subject.image_source }}" alt="Explore Btn"></a>
+                        <a href="{{ subject.url }}" class="explore-btn"><img src="{{ subject.image_source }}" alt="Explore Btn"></a>
                         <p>{{ subject.title}}</p>
                     </div>
 
             {% else %}
                     
                     <div class="col-sm-6 btn-container">
-                        <a href="" class="explore-btn"><img src="{{ subject.image_source }}" alt="Explore Btn"></a>
+                        <a href="{{ subject.url }}" class="explore-btn"><img src="{{ subject.image_source }}" alt="Explore Btn"></a>
                         <p>{{ subject.title}}</p>
                     </div>
                 </div>

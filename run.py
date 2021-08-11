@@ -31,8 +31,8 @@ def theories():
         data = json.load(json_data)
     return render_template("theories.html", page_title="Theory", theories=data)
 
-#Route for the EEpisodes page connected to the respective Json data page
-@app.route("/episodes")
+#Route for the Episodes page connected to the respective Json data page
+@app.route("/explore/<subject_url>")
 def episodes():
     data = []
     with open("data/episodes.json", "r") as json_data:
