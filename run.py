@@ -2,13 +2,13 @@ import os
 import json
 from flask import Flask, render_template
 
+
 app = Flask(__name__)
 
 
 @app.route("/")
 def index():
     return render_template("index.html")
-
 
 
 @app.route("/explore")
@@ -30,6 +30,14 @@ def theories():
     with open("data/theories.json", "r") as json_data:
         data = json.load(json_data)
     return render_template("theories.html", page_title="Theory", theories=data)
+
+
+@app.route("/episodes")
+def episodes():
+    data = []
+    with open("data/episodes.json", "r") as json_data:
+        data = json.load(json_data)
+    return render_template("episodes.html", page_title="Episodes", episodes=data)
 
 
 #remember to change debug = true to false
