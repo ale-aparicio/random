@@ -1,0 +1,281 @@
+/* ----------------Fonts -------------*/
+@import url('https://fonts.googleapis.com/css2?family=Pirata+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Piedra&family=Pirata+One&display=swap');
+
+
+/* ----------------Special Classes -------------*/
+a {
+    text-decoration: none !important;
+    color: none;
+}
+
+.inline-block{
+    display: inline-block;
+}
+
+li {
+    list-style-type: none;
+}
+
+.row {
+    margin: 0px;
+}
+
+.box {
+    width: 100%;
+    height: 100%;
+    background-color: #FF7040;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 3px 4px 5px rgba(0,0,0,0.5);
+}
+
+.bg-page{
+    background-color: #A1E4F9;
+    padding: 10px;
+}
+
+.sections {
+    width: 100%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+.mt-15 {
+    margin-top: 15px;
+}
+/* ----------------Heading -------------*/
+.bg-color-navbar {
+    background-color: #0094E8;
+}
+.navbar {
+    box-shadow: 3px 4px 5px rgba(0,0,0,0.5);
+}
+.navbar-brand {
+    font-family: 'Pirata One', sans-serif;
+    font-size: 65px;
+    margin-right: 20px;
+    padding: 0px;
+    color: white;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.6);
+}
+
+.navbar-brand:hover{
+    color: grey;
+}
+
+.navbar-nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-link {
+    font-family: 'Piedra', sans-serif;
+    font-size: 35px;
+    color: white;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.6);
+}
+
+.nav-link:hover {
+    color:grey
+}
+
+.nav-search {
+    background-color: #8DC8EA;
+    width: 300px;
+    height: 47px;
+    border: none;
+    border-radius: 5px;
+   
+}
+
+.nav-search:hover {
+    background-color: #70A0BB;
+}
+
+#search-btn {
+    background-color: #0094E8;
+    height: 47px;
+    border: none;
+    padding: 5px;
+    align-items: center;
+    border-radius: 5px;
+}
+
+#search-btn:hover {
+    background-color: #70A0BB;
+}
+
+/* ----------------Footer -------------*/
+.bg-color-footer {
+    background-color: #0094E8;
+}
+
+.nav-link.footer-link {
+    font-size: 3vh;
+}
+
+.social-media {
+  padding: 10px;
+}
+
+.social-links {
+    color: white;
+    font-family: 'Piedra', sans-serif;
+    font-size: 3vh;
+    padding: 10px;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.6);
+}
+
+.social-links:hover{
+    color: grey;
+}
+
+/* ----------------Home Page Content -------------*/
+
+.sections-2 {
+    width: 100%;
+    height: 45%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-right: 0px;
+    padding-left: 0px;
+    margin: 0px;
+}
+
+.box img {
+    width: 100%;
+}
+
+.box-img {
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: 3px 4px 5px rgba(0,0,0,0.5);
+}
+
+.box-text{
+    color: white;
+    font-family: 'Piedra', sans-serif;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.6);
+}
+
+h2.box-text {
+    font-size: 6vh;
+    text-align: center;
+}
+
+p.box-text {
+    font-size: 3vh;
+}
+
+h4.box-text {
+    font-size: 4vh;
+    text-align: center;
+}
+
+p.news{
+    font-size: 2vh;
+    
+}
+
+p.categories {
+    display: inline-block;
+}
+
+.box-links {
+    display: inline-block;
+    width: 50%;
+    font-family: 'Piedra', sans-serif;
+    font-size: 3vh;
+    color: white;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.6);
+}
+
+.box-links:hover {
+    color: grey;
+}
+
+a.categories.right {
+    float: right;
+}
+
+/* ----------------Explore Page Content -------------*/
+.banner {
+    width: 100%;
+    max-height: 500px;
+}
+
+.page-title {
+    font-family: 'Piedra', sans-serif;
+    font-size: 7vh;
+    color: white;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.6);
+    text-align: center;
+}
+
+.explore-content{
+    padding: 0px;
+}
+
+.btn-container {
+    padding: 10px;
+    align-items: center;
+    text-align: center;
+    font-family: 'Piedra', sans-serif;
+    font-size: 4vh;
+    color: white;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.6);
+}
+
+.explore-btn img {
+    width: 100%;
+    max-height: 280px;
+    border-radius: 5px;
+}
+
+/* ----------------Media Page Content -------------*/
+
+h5.box-text {
+    font-size: 3.5vh;
+}
+
+p.media {
+    font-size: 3vh;
+}
+/* ----------------Characters Page Content -------------*/
+.character-btn {
+    margin: 10px;
+}
+
+.character-container {
+    padding: 10px;
+    text-align: center;
+    font-family: 'Piedra', sans-serif;
+    font-size: 4vh;
+    color: white;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.6);
+}
+
+h2.box-text.crew-title {
+    text-align: start;
+}
+/* ----------------Special Classes for Desktop -------------*/
+
+/* ---Boxes and Sections ---*/
+@media only screen and (min-width:768px){
+    .sections {
+        padding-right: 15px;
+    }
+
+    .explore-btn img {
+        max-width: 700px;
+    }
+}
