@@ -1,32 +1,32 @@
 [
     {
       "title": "World Theories",
-      "image_source": "static/images/episodes_thumbnail.png",
+      "image_source": "static/images/world_theories.png",
       "url": "#"
     },
     {
       "title": "Character Theories",
-      "image_source": "static/images/chapters_thumbnail.png",
+      "image_source": "static/images/character_theories.png",
       "url": "#"
     },
     {
       "title": "Devil Fruit Theories",
-      "image_source": "static/images/movies_thumbnail.png",
+      "image_source": "static/images/devilfruit_theories.png",
       "url": "#"
     },
     {
       "title": "Story Theories",
-      "image_source": "static/images/characters_thumbnail.png",
+      "image_source": "static/images/story_theories.png",
       "url": "#"
     },
     {
       "title": "Crew Theories",
-      "image_source": "static/images/history_thumbnail.png",
+      "image_source": "static/images/crew_theories.png",
       "url": "#"
     },
     {
       "title": "Mischellaneous Theories",
-      "image_source": "static/images/atlas_thumbnail.png",
+      "image_source": "static/images/mischellaneous_theories.png",
       "url": "#"
     }
 ]
