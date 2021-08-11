@@ -1,4 +1,41 @@
 {% extends "base.html" %}
 {% block content %}
-    
+    <!---Banner-->
+    <img src="{{ url_for('static', filename='images/theories.png') }}" alt="Banner Image" class="banner">
+    <!---Sections-->
+    <div class="bg-page">
+        <div>
+            <h1 class="col-12 page-title">{{ page_title }}</h1>
+        </div>
+        <div  class="col-md-12 d-inline-flex explore-content">
+            <div class="col-sm-6 btn-container">
+                <a href="" class="explore-btn"><img src="assets/images/world_theories.png" alt="World Btn"></a>
+                <p>World Theories</p>
+            </div>
+            <div class="col-sm-6 btn-container">
+                <a href="" class="explore-btn"><img src="assets/images/character_theories.png" alt="Characters Btn"></a>
+                <p>Character Theories</p>
+            </div>
+        </div>
+        <div  class="col-md-12 d-inline-flex explore-content">
+            <div class="col-sm-6 btn-container">
+                <a href="" class="explore-btn"><img src="assets/images/devilfruit_theories.png" alt="Devil Fruits Btn"></a>
+                <p>Devil Fruit Theories</p>
+            </div>
+            <div class="col-sm-6 btn-container">
+                <a href="" class="explore-btn"><img src="assets/images/story_theories.png" alt="Story Btn"></a>
+                <p>Story Theories</p>
+            </div>
+        </div>
+        <div  class="col-md-12 d-inline-flex explore-content">
+            <div class="col-sm-6 btn-container">
+                <a href="" class="explore-btn"><img src="assets/images/crew_theories.png" alt="Crew Btn"></a>
+                <p>Crew Theories</p>
+            </div>
+            <div class="col-sm-6 btn-container">
+                <a href="" class="explore-btn"><img src="assets/images/miscellenius_theories.png" alt="Miscellaneous Btn"></a>
+                <p>Miscellaneous Theories</p>
+            </div>
+        </div>
+    </div>
 {% endblock %}

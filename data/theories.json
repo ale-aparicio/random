@@ -1,0 +1,62 @@
+[
+    {
+      "title": "Episodes",
+      "image_source": "static/images/episodes_thumbnail.png",
+      "url": "#"
+    },
+    {
+      "title": "Chapters",
+      "image_source": "static/images/chapters_thumbnail.png",
+      "url": "#"
+    },
+    {
+      "title": "Movies",
+      "image_source": "static/images/movies_thumbnail.png",
+      "url": "#"
+    },
+    {
+      "title": "Characters",
+      "image_source": "static/images/characters_thumbnail.png",
+      "url": "#"
+    },
+    {
+      "title": "History",
+      "image_source": "static/images/history_thumbnail.png",
+      "url": "#"
+    },
+    {
+      "title": "Atlas",
+      "image_source": "static/images/atlas_thumbnail.png",
+      "url": "#"
+    },
+    {
+      "title": "Zoology",
+      "image_source": "static/images/zoology_thumbnail.png",
+      "url": "#"
+    },
+    {
+      "title": "Cast",
+      "image_source": "static/images/cast_thumbnail.png",
+      "url": "#"
+    },
+    {
+      "title": "Culture",
+      "image_source": "static/images/culture_thumbnail.png",
+      "url": "#"
+    },
+    {
+      "title": "Author",
+      "image_source": "static/images/author_thumbnail.png",
+      "url": "#"
+    },
+    {
+      "title": "News",
+      "image_source": "static/images/news_thumbnail.png",
+      "url": "#"
+    },
+    {
+      "title": "Merchandise",
+      "image_source": "static/images/merch_thumbnail.png",
+      "url": "#"
+    }
+]
