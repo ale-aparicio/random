@@ -26,7 +26,10 @@ def media():
 
 @app.route("/theories")
 def theories():
-    return render_template("theories.html", page_title="Theories")
+    data = []
+    with open("data/theories.json", "r") as json_data:
+        data = json.load(json_data)
+    return render_template("theories.html", page_title="Theory", theories=data)
 
 
 #remember to change debug = true to false

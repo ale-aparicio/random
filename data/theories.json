@@ -1,62 +1,32 @@
 [
     {
-      "title": "Episodes",
+      "title": "World Theories",
       "image_source": "static/images/episodes_thumbnail.png",
       "url": "#"
     },
     {
-      "title": "Chapters",
+      "title": "Character Theories",
       "image_source": "static/images/chapters_thumbnail.png",
       "url": "#"
     },
     {
-      "title": "Movies",
+      "title": "Devil Fruit Theories",
       "image_source": "static/images/movies_thumbnail.png",
       "url": "#"
     },
     {
-      "title": "Characters",
+      "title": "Story Theories",
       "image_source": "static/images/characters_thumbnail.png",
       "url": "#"
     },
     {
-      "title": "History",
+      "title": "Crew Theories",
       "image_source": "static/images/history_thumbnail.png",
       "url": "#"
     },
     {
-      "title": "Atlas",
+      "title": "Mischellaneous Theories",
       "image_source": "static/images/atlas_thumbnail.png",
-      "url": "#"
-    },
-    {
-      "title": "Zoology",
-      "image_source": "static/images/zoology_thumbnail.png",
-      "url": "#"
-    },
-    {
-      "title": "Cast",
-      "image_source": "static/images/cast_thumbnail.png",
-      "url": "#"
-    },
-    {
-      "title": "Culture",
-      "image_source": "static/images/culture_thumbnail.png",
-      "url": "#"
-    },
-    {
-      "title": "Author",
-      "image_source": "static/images/author_thumbnail.png",
-      "url": "#"
-    },
-    {
-      "title": "News",
-      "image_source": "static/images/news_thumbnail.png",
-      "url": "#"
-    },
-    {
-      "title": "Merchandise",
-      "image_source": "static/images/merch_thumbnail.png",
       "url": "#"
     }
 ]
