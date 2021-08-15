@@ -8,33 +8,35 @@
         <div>
             <h1 class="col-12 page-title">{{ page_title }}</h1>
         </div>
-
-        {% for theory in theories %}
-
-            {% if loop.index % 2 != 0 %}
-
-
-                <div  class="col-md-12 d-inline-flex explore-content">
-                    <div class="col-sm-6 btn-container">
-                        <a href="" class="explore-btn"><img src="{{ theory.image_source }}" alt="Explore Btn"></a>
-                        <p>{{ theory.title}}</p>
-                    </div>
-
-
-            {% else %}
-                    
-
-                    <div class="col-sm-6 btn-container">
-                        <a href="" class="explore-btn"><img src="{{ theory.image_source }}" alt="Explore Btn"></a>
-                        <p>{{ theory.title}}</p>
-                    </div>
+        <div class="row">
+            <div class="col-md-5 sections">
+                <div class="box">
+                    <ul>
+                        <li>
+                            <h4 class="box-text">
+                                Where can you watch/read?
+                            </h4>
+                        </li>
+                        <li>
+                            <h5 class="box-text">Watch :</h5>
+                            <p class="box-text media">
+                                So where can you watch One Piece?
+                                You can find One Piece on Crunchyroll,
+                                on Japanese Netflix if you have a vpn. As well as third party sites such as 9anime.to
+                            </p>
+                        </li>
+                        <li>
+                            <h5 class="box-text">Read :</h5>
+                            <p class="box-text media">
+                                So where can you read One Piece?
+                                Traditionally you can find manga such as One Piece in your local comic book store or
+                                book store. If you find yourself not wanting to spend money or you just don’t have acess
+                                to the manga’s you can read it in sites such as myonepiecemanga.com
+                            </p>
+                        </li>
+                    </ul>
                 </div>
-                
-
-            {% endif %}
-
-        {% endfor %}
-
+            </div>
     </div>
 
 {% endblock %}
