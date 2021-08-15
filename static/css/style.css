@@ -267,6 +267,10 @@ p.media {
 h2.box-text.crew-title {
     text-align: start;
 }
+
+h4.box-text.theory-title {
+    text-align: start;
+}
 /* ----------------Special Classes for Desktop -------------*/
 
 /* ---Boxes and Sections ---*/
