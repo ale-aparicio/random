@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+    <!---Banner-->
+    <img src="{{ url_for('static', filename='images/theories.png') }}" alt="Banner Image" class="banner">
+    <!---Sections-->
+    <div class="bg-page">
+        <div>
+            <h1 class="col-12 page-title">{{ page_title }}</h1>
+        </div>
+
+        {% for theory in theories %}
+
+            {% if loop.index % 2 != 0 %}
+
+                
+
+                <div  class="col-md-12 d-inline-flex explore-content">
+                    <div class="col-sm-6 btn-container">
+                        <a href="" class="explore-btn"><img src="{{ theory.image_source }}" alt="Explore Btn"></a>
+                        <p>{{ theory.title}}</p>
+                    </div>
+
+            {% else %}
+                    
+                    <div class="col-sm-6 btn-container">
+                        <a href="" class="explore-btn"><img src="{{ theory.image_source }}" alt="Explore Btn"></a>
+                        <p>{{ theory.title}}</p>
+                    </div>
+                </div>
+                
+            {% endif %}
+
+        {% endfor %}
+
+    </div>
+
+{% endblock %}
