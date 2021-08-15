@@ -32,7 +32,7 @@ def theories():
     return render_template("theories.html", page_title="Theory", theories=data)
 
 
-#Route for the Theories page connected to the respective sub theories categories
+#Route for the Sub Theories Connected to the sub-theories.json page 
 @app.route("/theories/<theories_url>")
 def theories_content(theory):
     return render_template("<theories_url>", page_title="<theories_title>", theories=theory)
