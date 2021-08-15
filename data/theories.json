@@ -2,7 +2,7 @@
     {
       "title": "World Theories",
       "image_source": "static/images/world_theories.png",
-      "url": "#"
+      "url": "{{ url_for('world_theories') }}"
     },
     {
       "title": "Character Theories",

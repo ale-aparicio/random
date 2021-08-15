@@ -40,6 +40,11 @@ def episodes():
     return render_template("episodes.html", page_title="Episodes", episodes=data)
 
 
+@app.route("/world_theories")
+def world_theories():
+    return render_template("world_theories.html", page_title="World Theories")
+
+
 #remember to change debug = true to false
 
 if __name__ == "__main__":
