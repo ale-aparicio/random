@@ -2,12 +2,12 @@
     {
       "title": "World Theories",
       "image_source": "static/images/world_theories.png",
-      "url": "{{ url_for('theories_content', theories='world_theories') }}"
+      "url": "world_theories"
     },
     {
       "title": "Character Theories",
       "image_source": "static/images/character_theories.png",
-      "url": "#"
+      "url": "character_theories"
     },
     {
       "title": "Devil Fruit Theories",

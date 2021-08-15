@@ -32,11 +32,19 @@ def theories():
     return render_template("theories.html", page_title="Theory", theories=data)
 
 
-#Route for the Episodes page connected to the respective Json data page
+#Route for the Theories page connected to the respective sub theories categories
+@app.route("/theories/<theories_url>")
+def theories_content(theory):
+    return render_template("<theories_url>", page_title="<theories_title>", theories=theory)
+
+
 @app.route("/world_theories")
 def world_theories():
     return render_template("world_theories.html", page_title="World Theories")
 
+@app.route("/character_theories")
+def character_theories():
+    return render_template("character_theories.html", page_title="Character Theories")
 
 
 #remember to change debug = true to false
