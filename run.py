@@ -31,18 +31,12 @@ def theories():
         data = json.load(json_data)
     return render_template("theories.html", page_title="Theory", theories=data)
 
+
 #Route for the Episodes page connected to the respective Json data page
-@app.route("/explore/<subject_url>")
-def episodes():
-    data = []
-    with open("data/episodes.json", "r") as json_data:
-        data = json.load(json_data)
-    return render_template("episodes.html", page_title="Episodes", episodes=data)
-
-
-@app.route("/theories/world_theories")
+@app.route("/world_theories")
 def world_theories():
     return render_template("world_theories.html", page_title="World Theories")
+
 
 
 #remember to change debug = true to false
