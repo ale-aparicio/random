@@ -40,7 +40,7 @@ def episodes():
     return render_template("episodes.html", page_title="Episodes", episodes=data)
 
 
-@app.route("/world_theories")
+@app.route("/world_theories/")
 def world_theories():
     return render_template("world_theories.html", page_title="World Theories")
 
