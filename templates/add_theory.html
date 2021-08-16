@@ -1,4 +1,23 @@
 {% extends "base.html" %}
 {% block content %}
-
+<div class="bg-page">
+    <div>
+        <h1 class="col-12 page-title">{{ page_title }}</h1>
+    </div>
+    <form>
+        <div class="form-group">
+          <label class="box-text"><h2>Title</h2></label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Title of your theory">
+        </div>
+        <div class="form-group">
+            <label class="box-text"><h2>Username</h2></label>
+          <input type="username" class="form-control" id="exampleInputPassword1" placeholder="Your name or whatever you want it to be displayed as">
+        </div>
+        <div class="form-group">
+            <label class="box-text"><h2>Theory</h2></label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>
+          </div>
+        <button type="submit" class="box box-text create-btn create-btn-title col-md-4">Submit</button>
+      </form>
+</div>
 {% endblock %}
