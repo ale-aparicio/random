@@ -40,7 +40,10 @@ def theories_content(theory):
 
 @app.route("/world_theories")
 def world_theories():
-    return render_template("world_theories.html", page_title="World Theories")
+    data = []
+    with open("data/world.json", "r") as json_data:
+        data = json.load(json_data)
+    return render_template("world_theories.html", page_title="World Theories", world=data)
 
 @app.route("/character_theories")
 def character_theories():

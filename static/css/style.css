@@ -271,6 +271,14 @@ h2.box-text.crew-title {
 h4.box-text.theory-title {
     text-align: start;
 }
+
+.theory-title:hover{
+    color: grey;
+}
+
+.theory-desc:hover {
+    color: grey;
+}
 /* ----------------Special Classes for Desktop -------------*/
 
 /* ---Boxes and Sections ---*/
