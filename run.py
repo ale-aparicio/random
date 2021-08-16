@@ -46,8 +46,8 @@ def theories():
 #Route for the Sub Theories Connected to the sub-theories.json page  
 @app.route("/world_theories")
 def world_theories():
-    worlds = mongo.db.world.find()
-    return render_template("world_theories.html", page_title="World Theories", worlds=worlds)
+    world = mongo.db.world.find()
+    return render_template("world_theories.html", page_title="World Theories", worlds=world)
 
 @app.route("/character_theories")
 def character_theories():
