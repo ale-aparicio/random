@@ -43,16 +43,11 @@ def theories():
     return render_template("theories.html", page_title="Theory", theories=data)
 
 
-#Route for the Sub Theories Connected to the sub-theories.json page 
-@app.route("/theories/<theories_url>")
-def theories_content(theory):
-    return render_template("<theories_url>", page_title="<theories_title>", theories=theory)
-
-
+#Route for the Sub Theories Connected to the sub-theories.json page  
 @app.route("/world_theories")
 def world_theories():
-    world = mongo.db.theories.find()
-    return render_template("world_theories.html", page_title="World Theories", worlds=world)
+    worlds = mongo.db.world.find()
+    return render_template("world_theories.html", page_title="World Theories", worlds=worlds)
 
 @app.route("/character_theories")
 def character_theories():

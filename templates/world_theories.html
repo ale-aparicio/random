@@ -9,7 +9,7 @@
             <h1 class="col-12 page-title">{{ page_title }}</h1>
         </div>
         <div class="row">
-        {% for worlds in world %}
+        {% for world in worlds %}
 
             {% if loop.index % 2 != 0 %}
 
@@ -19,12 +19,12 @@
                                 <div class="col-12 ">
                                     <a href="" class="col-md-4">
                                         <h4 class=" box-text theory-title">
-                                            {{ worlds.title }}
+                                            {{ world.title }}
                                         </h4>
                                     </a>
                                     <a href="" class="col-md-8">
                                         <p class="box-text theory-desc">
-                                            {{ worlds.description }}
+                                            {{ world.description }}
                                         </p>
                                     </a>
                                 </div>
@@ -38,14 +38,14 @@
                         <div  class="col-md-12 d-inline-flex explore-content">
                             <div class="box">
                                 <div class="col-12 ">
-                                    <a href="{{ worlds.url }}" class="col-md-4">
+                                    <a href="" class="col-md-4">
                                         <h4 class=" box-text theory-title">
-                                            {{ worlds.title }}
+                                            {{ world.title }}
                                         </h4>
                                     </a>
-                                    <a href="{{ worlds.url }}" class="col-md-8">
+                                    <a href="" class="col-md-8">
                                         <p class="box-text theory-desc">
-                                            {{ worlds.description }}
+                                            {{ world.description }}
                                         </p>
                                     </a>
                                 </div>
