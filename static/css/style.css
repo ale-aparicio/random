@@ -268,6 +268,20 @@ h2.box-text.crew-title {
     text-align: start;
 }
 
+
+/* ----------------Sub Theories Page Content -------------*/
+.theory-title {
+    font-size: 5vh;
+}
+
+.btn-link {
+    text-decoration: none;
+}
+
+.btn-link:hover{
+    text-decoration: none;
+}
+
 h4.box-text.theory-title {
     text-align: start;
 }
@@ -276,8 +290,8 @@ h4.box-text.theory-title {
     color: grey;
 }
 
-.theory-desc:hover {
-    color: grey;
+.theory-desc {
+    font-size: 2.5vh;
 }
 /* ----------------Special Classes for Desktop -------------*/
 

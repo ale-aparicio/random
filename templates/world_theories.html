@@ -13,44 +13,44 @@
 
             {% if loop.index % 2 != 0 %}
 
-                <div class="col-12 sections">
-                    <div  class="col-md-12 d-inline-flex explore-content">
-                        <div class="box">
-                            <div class="col-12 ">
-                                <a href="" class="col-md-4">
-                                    <h4 class=" box-text theory-title">
-                                        {{ world.title }}
-                                    </h4>
-                                </a>
-                                <a href="" class="col-md-8">
-                                    <p class="box-text theory-desc">
-                                        {{ world.description }}
-                                    </p>
-                                </a>
-                            </div>
+                <div id="accordion">
+                    <div class="col-12 card box">
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                        <button class="btn btn-link collapsed box-text theory-title" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            {{ world.title }}
+                        </button>
+                        </h5>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                        <div class="card-body box-text theory-desc">
+                        {{ world.user }}<br>
+                        <br>
+                        {{ world.content }}<br>
                         </div>
+                    </div>
                     </div>
                 </div>
 
             {% else %}
 
-                <div class="col-12 sections">
-                        <div  class="col-md-12 d-inline-flex explore-content">
-                            <div class="box">
-                                <div class="col-12 ">
-                                    <a href="" class="col-md-4">
-                                        <h4 class=" box-text theory-title">
-                                            {{ world.title }}
-                                        </h4>
-                                    </a>
-                                    <a href="" class="col-md-8">
-                                        <p class="box-text theory-desc">
-                                            {{ world.description }}
-                                        </p>
-                                    </a>
-                                </div>
-                            </div>
+                <div id="accordion">
+                    <div class="col-12 card box">
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                        <button class="btn btn-link collapsed box-text theory-title" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            {{ world.title }}
+                        </button>
+                        </h5>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                        <div class="card-body box-text theory-desc">
+                        {{ world.user }}<br>
+                        <br>
+                        {{ world.content }}<br>
                         </div>
+                    </div>
+                    </div>
                 </div>
                             
             {% endif %}
