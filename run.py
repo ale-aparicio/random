@@ -46,19 +46,15 @@ def theories():
 #Route for the Sub Theories Connected to the sub-theories.json page  
 @app.route("/world_theories")
 def world_theories():
-    world = mongo.db.world.find()
-    return render_template("world_theories.html", page_title="World Theories", worlds=world)
-
-@app.route("/character_theories")
-def character_theories():
-    return render_template("character_theories.html", page_title="Character Theories")
+    worlds = mongo.db.world.find()
+    return render_template("world_theories.html", page_title="World Theories", worlds=worlds)
 
 
 #remember to change debug = true to false
 
 if __name__ == "__main__":
     app.run(
-        host=os.environ.get("IP", "0.0.0.0"),
-        port=int(os.environ.get("PORT", "5000")),
+        host=os.environ.get("IP"),
+        port=int(os.environ.get("PORT")),
         debug=True)
 
