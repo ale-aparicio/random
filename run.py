@@ -49,7 +49,9 @@ def world_theories():
     worlds = mongo.db.world.find()
     return render_template("world_theories.html", page_title="World Theories", worlds=worlds)
 
-
+@app.route("/add_theories")
+def add_theories():
+    return render_template("add_theory.html", page_title="Add a Theory")
 #remember to change debug = true to false
 
 if __name__ == "__main__":
