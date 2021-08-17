@@ -31,7 +31,6 @@ li {
 }
 .bg-page-main{
     background-color: #A1E4F9;
-    padding: 10px;
 }
 
 .bg-page{
@@ -322,7 +321,7 @@ h4.box-text.theory-title {
 }
 
 .bg-page.register {
-    padding: 30px;
+    padding: 50px;
     align-items: center;
 }
 
