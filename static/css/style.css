@@ -270,13 +270,13 @@ h2.box-text.crew-title {
 /* ----------------Sub Theories Page Content -------------*/
 .create-btn{
     border: none;
-    box-shadow: inset 0 0 0 0 #FF7040;
+    box-shadow: inset 0 0 0 0 #F3D431;
     transition: ease-out 0.1s;
     outline: none;
 }
 
 .create-btn:hover {
-    box-shadow: inset 1000px 0 0 0 #A1492B;
+    box-shadow: inset 1000px 0 0 0 #BCA529;
 }
 
 .create-btn-title:hover{
