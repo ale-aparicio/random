@@ -32,10 +32,14 @@
       <!---Content Input-->
       <div class="form-group">
           <label class="box-text" for="content"><h2>Theory</h2></label>
-          <textarea class="form-control" id="content" name="content" rows="6">{{ world.content }}</textarea>
+          <textarea class="form-control" id="content" name="content" rows="10">{{ world.content }}</textarea>
         </div>
-        <!---Submit Button-->
+      <!---Submit Button-->
       <button type="submit" class="box box-text create-btn create-btn-title col-md-4" name="submit_theory"><h2>Edit</h2></button>
+      <!--Cancel Button-->
+      <a href="{{ url_for('world_theories') }}">
+      <button type="button" class="box box-text create-btn create-btn-title col-md-4"><h2>Cancel</h2></button>
+      </a>
     </form>
   </div>
 {% endblock %}
