@@ -310,6 +310,15 @@ h4.box-text.theory-title {
 .theory-btn:hover {
     color: grey;
 }
+
+.bg-page.register {
+    padding: 30px;
+    align-items: center;
+}
+
+.register-card{
+    align-items: center;
+}
 /* ----------------Special Classes for Desktop -------------*/
 
 /* ---Boxes and Sections ---*/
