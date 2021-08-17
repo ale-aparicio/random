@@ -1,65 +1,64 @@
 {% extends "base.html" %}
 {% block content %}
-    <div class="row bg-page">
-        <div class="col-md-8 sections">
-            <div class="box">
-                <img src="{{ url_for('static', filename='images/Crew_Pic.jpg') }}" alt="Banner Image" class="box-img">
-                <ul>
-                    <li>
-                        <h2 class="box-text">
-                            Welcome!
-                        </h2>
-                    </li>
-                    <li>
-                        <p class="box-text">
-                            Welcome to Straw Facts! Where you can find all things One Piece. Whether you’re looking for
-                            a specific piece of information or delving deep into this magnificent world we have you
-                            covered! You can find all sorts of information regarding the world of One Piece from
-                            individual characters to the iconic crews and groups of the world.
-                        </p>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="col-md-4 sections-2">
-            <div class="box">
-                <ul>
-                    <li>
-                        <h4 class="box-text">
-                            News!
-                        </h4>
-                    </li>
-                    <li>
-                        <p class="box-text news">
-                            Chapter 1019: "Heliceratops"
-                            With Sasaki's forces now defected, Franky is able to take on the Tobiroppo one-on-one. The
-                            two of them fight ferociously, with Sasaki showing the ability to make his triceratops frill
-                            spin rapidly and become a weapon as well as lift himself up into the air. Sasaki unleashes a
-                            powerful finishing blow against the General Franky and greatly damages it, but Franky
-                            manages to eject from it in time. He then unleashes a "Radical Beam" which strikes Sasaki in
-                            the stomach and brings him down.
-                            <br />
-                            <br />
-                            On the Skull Dome roof, Yamato has entered a Zoan hybrid form whilst doing battle with
-                            Kaido.
-                        </p>
-                    </li>
-                </ul>
-            </div>
-            <div class="mt-15 box">
-                <ul>
-                    <li>
-                        <h4 class="box-text">
-                            Theories
-                        </h4>
-                    </li>
-                    <li>
-                        {% for theory in theories %}
-                            <a href="{{ theory.url }}" class="box-links">{{ theory.title }}</a>
-                        {% endfor %}
-                    </li>
-                </ul>
-            </div>
+<div class="row bg-page">
+    <div class="col-md-8 sections">
+        <div class="box">
+            <img src="{{ url_for('static', filename='images/Crew_Pic.jpg') }}" alt="Banner Image" class="box-img">
+            <ul>
+                <li>
+                    <h2 class="box-text">
+                        Welcome!
+                    </h2>
+                </li>
+                <li>
+                    <p class="box-text">
+                        Welcome to Straw Facts! A place of speculation and investigation. Here we provide you the tools
+                        to theorize and share said theories with the countless number of other theorizers. Unleash your
+                        wildest theories with everyone!
+                    </p>
+                </li>
+            </ul>
         </div>
     </div>
+    <div class="col-md-4 sections-2">
+        <div class="box">
+            <ul>
+                <li>
+                    <h4 class="box-text">
+                        News!
+                    </h4>
+                </li>
+                <li>
+                    <p class="box-text news">
+                        Chapter 1019: "Heliceratops"
+                        With Sasaki's forces now defected, Franky is able to take on the Tobiroppo one-on-one. The
+                        two of them fight ferociously, with Sasaki showing the ability to make his triceratops frill
+                        spin rapidly and become a weapon as well as lift himself up into the air. Sasaki unleashes a
+                        powerful finishing blow against the General Franky and greatly damages it, but Franky
+                        manages to eject from it in time. He then unleashes a "Radical Beam" which strikes Sasaki in
+                        the stomach and brings him down.
+                        <br />
+                        <br />
+                        On the Skull Dome roof, Yamato has entered a Zoan hybrid form whilst doing battle with
+                        Kaido.
+                    </p>
+                </li>
+            </ul>
+        </div>
+        <div class="mt-15 box">
+            <ul>
+                <li>
+                    <h4 class="box-text">
+                        Theories
+                    </h4>
+                </li>
+                <li>
+                    {% for theory in theories %}
+                    <a href="{{ theory.url }}" class="box-links">{{ theory.title }}</a>
+                    {% endfor %}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
 {% endblock %}
