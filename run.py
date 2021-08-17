@@ -73,8 +73,18 @@ def add_theories():
 #Function to edit a theory
 @app.route("/edit_theories/<theory_id>", methods=["GET", "POST"])
 def edit_theories(theory_id):
-    world = mongo.db.world.find_one({"_id": ObjectId(theory_id)})
+    if request.method == "POST":
+        #Update theory linked to the world_theory category
+        world_edit = {
+            "title": request.form.get("title"),
+            "user": request.form.get("user"),
+            "content": request.form.get("content")
+        }
+        mongo.db.world.update({"_id"}:ObjectId(), world_edit)
+        #Message when Theory has been sucessfully added
+        flash("Theory Sucessfully Added")
 
+    world = mongo.db.world.find_one({"_id": ObjectId(theory_id)})
     data = []
     with open("data/theories.json", "r") as json_data:
         data = json.load(json_data)
