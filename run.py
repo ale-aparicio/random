@@ -1,7 +1,7 @@
 import os
 import json
 from flask import (
-    Flask, flash, render_template, 
+    Flask, flash, render_template,
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
@@ -17,48 +17,61 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
+
 @app.route("/")
 def index():
     return render_template("index.html")
 
+
 # Route for the Explore page connected to the respective Json data page
 @app.route("/explore")
 def explore():
-        data = []
-        with open("data/explore.json", "r") as json_data:
-            data = json.load(json_data)
-        return render_template(
-            "explore.html", 
-            page_title="Explore", 
-            explore=data
-        )
+    data = []
+    with open("data/explore.json", "r") as json_data:
+        data = json.load(json_data)
+    return render_template(
+        "explore.html",
+        page_title="Explore",
+        explore=data
+    )
 
 
 @app.route("/media")
 def media():
     return render_template("media.html", page_title="Media")
 
+
 # Route for the Theories page connected to the respective Json data page
+
+
 @app.route("/theories")
 def theories():
     data = []
     with open("data/theories.json", "r") as json_data:
         data = json.load(json_data)
     return render_template(
-        "theories.html", 
-        page_title="Theory", 
+        "theories.html",
+        page_title="Theory",
         theories=data
     )
 
 
 # Route for the Sub Theories connected to the MongoDB database
+
+
 @app.route("/world_theories")
 def world_theories():
     worlds = mongo.db.world.find()
-    return render_template("world_theories.html", page_title="World Theories", worlds=worlds)
+    return render_template(
+        "world_theories.html",
+        page_title="World Theories",
+        worlds=worlds
+        )
 
 
 # Function to add a theory
+
+
 @app.route("/add_theories", methods=["GET", "POST"])
 def add_theories():
     if request.method == "POST":
@@ -76,11 +89,13 @@ def add_theories():
     with open("data/theories.json", "r") as json_data:
         data = json.load(json_data)
     return render_template(
-        "add_theory.html", page_title="Add a Theory", 
+        "add_theory.html", page_title="Add a Theory",
         theories=data)
 
 
 # Function to edit a theory
+
+
 @app.route("/edit_theories/<theory_id>", methods=["GET", "POST"])
 def edit_theories(theory_id):
     if request.method == "POST":
@@ -90,7 +105,6 @@ def edit_theories(theory_id):
             "user": request.form.get("user"),
             "content": request.form.get("content")
         }
-        
         # Message when Theory has been sucessfully added
         flash("Theory Sucessfully Added")
 
@@ -99,17 +113,19 @@ def edit_theories(theory_id):
     with open("data/theories.json", "r") as json_data:
         data = json.load(json_data)
     return render_template(
-        "edit_theory.html", 
-        page_title="Edit a Theory", 
-        world=world, 
+        "edit_theory.html",
+        page_title="Edit a Theory",
+        world=world,
         theories=data
     )
 
 
 # remember to change debug = true to false
+
+
 if __name__ == "__main__":
     app.run(
         host=os.environ.get("IP"),
         port=int(os.environ.get("PORT")),
-        debug=True)
-
+        debug=True
+        )
