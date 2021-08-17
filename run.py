@@ -49,8 +49,16 @@ def world_theories():
     worlds = mongo.db.world.find()
     return render_template("world_theories.html", page_title="World Theories", worlds=worlds)
 
-@app.route("/add_theories")
+@app.route("/add_theories" methods=["GET", "POST"])
 def add_theories():
+    if request.method == "POST":
+        theory = {
+            "title": request.form.get("title"),
+            "user": request.form.get("user"),
+            "content": request.form.get("content")
+        }
+        mongo.db.theories.insert_one(theory)
+        flash("Theory Sucessfully Added")
     data = []
     with open("data/theories.json", "r") as json_data:
         data = json.load(json_data)

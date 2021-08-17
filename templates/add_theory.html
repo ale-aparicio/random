@@ -4,7 +4,7 @@
     <div>
         <h1 class="col-12 page-title">{{ page_title }}</h1>
     </div>
-    <form method="POST" action="{{ url_for('add-theory') }}">
+    <form method="POST" action="{{ url_for('add_theories') }}">
       <!---Categories Selection-->
       <div class="form-group">
         <label class="box-text" for="categories"><h2>Categories</h2></label>
@@ -18,12 +18,12 @@
       <!---Title Input-->
       <div class="form-group">
         <label class="box-text" for="title"><h2>Title</h2></label>
-        <input type="email" class="form-control" id="title" name="title" for="title" aria-describedby="emailHelp" placeholder="Title of your theory">
+        <input type="text" class="form-control" id="title" name="title" for="title" aria-describedby="emailHelp" placeholder="Title of your theory">
       </div>
       <!---Username Input-->
       <div class="form-group">
-          <label class="box-text" for="username"><h2>Username</h2></label>
-        <input type="username" class="form-control" id="username" name="username" placeholder="Your name or whatever you want it to be displayed as">
+          <label class="box-text" for="user"><h2>Username</h2></label>
+        <input type="text" class="form-control" id="user" name="user" placeholder="Your name or whatever you want it to be displayed as">
       </div>
       <!---Content Input-->
       <div class="form-group">
