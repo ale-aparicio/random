@@ -29,6 +29,10 @@ li {
     padding: 20px;
     box-shadow: 3px 4px 5px rgba(0,0,0,0.5);
 }
+.bg-page-main{
+    background-color: #A1E4F9;
+    padding: 10px;
+}
 
 .bg-page{
     background-color: #A1E4F9;
