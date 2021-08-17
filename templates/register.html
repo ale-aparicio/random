@@ -11,11 +11,11 @@
                             <h5 class="card-title box-text">Register</h5>
                             <!---Username Input-->
                             <p class="box-text" for="username"> <i class="fas fa-user"></i> Username</p>
-                            <input type="text" class="form-control forms validate" id="username" name="username" placeholder="monkeyd.luffy" required>
+                            <input type="text" class="form-control forms validate" id="username" name="username" placeholder="monkeyd.luffy" minlegth="5" max-length="15" pattern="^[a-zA-Z0-9{5,15}]$" required>
                             <br>
                             <!---Password Input-->
                             <p class="box-text" for="password" > <i class="fas fa-lock"></i> Password</p>
-                            <input type="password" class="form-control forms validate" id="password" name="password" placeholder="****" required>
+                            <input type="password" class="form-control forms validate" id="password" name="password" placeholder="****" minlegth="5" max-length="15" pattern="^[a-zA-Z0-9{5,15}]$" required>
                             <br>
                             <!---Register Button-->
                             <div class="row">

@@ -51,6 +51,10 @@ ul {
 .mt-15 {
     margin-top: 15px;
 }
+
+.flashes h4{
+    line-height: 2;
+}
 /* ----------------Heading -------------*/
 .bg-color-navbar {
     background-color: #0094E8;
