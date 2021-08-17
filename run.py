@@ -20,7 +20,13 @@ mongo = PyMongo(app)
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    data = []
+    with open("data/theories.json", "r") as json_data:
+        data = json.load(json_data)
+    return render_template(
+        "index.html",
+        theories=data
+    )
 
 
 # Route for the Theories page connected to the respective Json data page
@@ -71,7 +77,7 @@ def add_theories():
     with open("data/theories.json", "r") as json_data:
         data = json.load(json_data)
     return render_template(
-        "add_theory.html", page_title="Add a Theory",
+        "add_theory.html", page_title="Create a Theory",
         theories=data)
 
 

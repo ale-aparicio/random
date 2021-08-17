@@ -54,18 +54,9 @@
                         </h4>
                     </li>
                     <li>
-                        <a href="#" class="box-links categories">Episodes</a>
-                        <a href="#" class="box-links categories right">Chapters</a>
-                        <a href="#" class="box-links categories">Movies</a>
-                        <a href="#" class="box-links categories right">Characters</a>
-                        <a href="#" class="box-links categories">History</a>
-                        <a href="#" class="box-links categories right">Atlas</a>
-                        <a href="#" class="box-links categories">Zoology</a>
-                        <a href="#" class="box-links categories right">Cast</a>
-                        <a href="#" class="box-links categories">Culture</a>
-                        <a href="#" class="box-links categories right">Author</a>
-                        <a href="#" class="box-links categories">News</a>
-                        <a href="#" class="box-links categories right">Merch</a>
+                        {% for theory in theories %}
+                            <a href="{{ theory.url }}" class="box-links">{{ theory.title }}</a>
+                        {% endfor %}
                     </li>
                 </ul>
             </div>

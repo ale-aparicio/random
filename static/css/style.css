@@ -192,7 +192,7 @@ p.categories {
 
 .box-links {
     display: inline-block;
-    width: 50%;
+    width: 100%;
     font-family: 'Piedra', sans-serif;
     font-size: 3vh;
     color: white;
