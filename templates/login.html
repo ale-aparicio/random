@@ -4,31 +4,31 @@
         <div class="row">
             <div class="col-2"></div>
             <div class="col-8">
-                <form method="POST" action="{{ url_for('register') }}">
-                    <div class="card box" style=" width: 100%;">
+                <form method="POST" action="{{ url_for('login') }}">
+                    <div class="card box" style="width: 100%;">
                         <div class="card-body register-card">
                             <!---Title-->
-                            <h5 class="card-title box-text">Register</h5>
+                            <h5 class="card-title box-text">Log In</h5>
                             <!---Username Input-->
                             <p class="box-text" for="username"> <i class="fas fa-user"></i> Username</p>
-                            <input type="text" class="form-control forms validate" id="username" name="username" placeholder="monkeydluffy" minlegth="3" max-length="20" pattern="^[a-zA-Z0-9{5,15}]$" required>
+                            <input type="text" class="form-control forms validate" id="username" name="username" placeholder="monkeyd.luffy" minlegth="5" max-length="15" pattern="^[a-zA-Z0-9{5,15}]$" required>
                             <br>
                             <!---Password Input-->
                             <p class="box-text" for="password" > <i class="fas fa-lock"></i> Password</p>
-                            <input type="password" class="form-control forms validate" id="password" name="password" placeholder="****" minlegth="3" max-length="20" pattern="^[a-zA-Z0-9{5,15}]$" required>
+                            <input type="password" class="form-control forms validate" id="password" name="password" placeholder="****" minlegth="5" max-length="15" pattern="^[a-zA-Z0-9{5,15}]$" required>
                             <br>
                             <!---Register Button-->
                             <div class="row">
                                 <button type="submit" class="box box-text create-btn create-btn-title col-md-4" name="submit_theory">
-                                    <h2>Register</h2>
+                                    <h2>Log In</h2>
                                 </button>
                             </div>
                             <br>
                             <div class="row">
                                 <div class="col">
                                     <p class="box-text">
-                                        Already have an account?
-                                        <a href="{{ url_for('login') }}" class="box-text box-links">Log In</a>
+                                        New Here? 
+                                        <a href="{{ url_for('register') }}" class="box-text  box-links">Sign Up</a>
                                     </p>
                                 </div>
                             </div>

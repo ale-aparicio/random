@@ -52,6 +52,12 @@ def register():
         flash("Registration Successful!")
     return render_template("register.html")
 
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    return render_template("login.html")
+
+
 # Route for the Theories page connected to the respective Json data page
 
 

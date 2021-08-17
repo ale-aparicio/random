@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='fontawesome/css/all.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}">
+    {% block styles %}
+    {% endblock %}
     <title>Straw Facts</title>
 </head>
 <body>
@@ -27,9 +29,8 @@
                         <li class="nav-item list-inline-item">
                             <a href="{{ url_for('add_theories') }}" class="nav-link">Create</a>
                         </li>
-                        <li class="nav-item list-inline-item">
-                            <a href="{{ url_for('register') }}" class="nav-link">Sign Up</a>
-                        </li>
+                        
+                        
                     </div>
                     <div class="nav-elements-right">
                         <li class="nav-item list-inline-item d-none d-lg-inline-flex">
@@ -39,6 +40,12 @@
                             <div class="list-inline-item">
                                 <button type="button" id="search-btn" ><i class="fas fa-search fa-2x"style="color: white"></i></a>
                             </div>
+                            <li class="nav-item list-inline-item">
+                                <a href="{{ url_for('register') }}" class="nav-link">Sign Up</a>
+                            </li>
+                            <li class="nav-item list-inline-item">
+                                <a href="{{ url_for('login') }}" class="nav-link">Log In</a>
+                            </li>
                         </li>
                     </div>
                 </div>
@@ -51,15 +58,16 @@
             {% if messages %}
                 {% for message in messages %}
                     <div class="row flashes">
-                        <h4 class="box box-text center-align">{{ message }}</h4>
+                        <h4 class="box center-align">{{ message }}</h4>
                     </div>
                 {% endfor %}
             {% endif %}
         {% endwith %}
     </section>
-
-    {% block content %}
-    {% endblock %} 
+    <main>
+        {% block content %}
+        {% endblock %} 
+    </main>
 
     <!---Footer-->
     <footer class="container-fluid footercontainer bg-color-footer">
@@ -97,9 +105,11 @@
             </div>
         </div>
     </footer>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script defer src="{{ url_for('static', filename='fontawesome/js/all.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script defer src="{{ url_for('static', filename='fontawesome/js/all.js') }}"></script>
+    {% block scripts %}
+    {% endblock %}
 </body>
 </html>
