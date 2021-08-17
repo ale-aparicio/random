@@ -49,7 +49,7 @@ def world_theories():
     worlds = mongo.db.world.find()
     return render_template("world_theories.html", page_title="World Theories", worlds=worlds)
 
-@app.route("/add_theories" methods=["GET", "POST"])
+@app.route("/add_theories", methods=["GET", "POST"])
 def add_theories():
     if request.method == "POST":
         theory = {
