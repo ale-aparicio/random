@@ -309,6 +309,9 @@ h4.box-text.theory-title {
     font-size: 2.5vh;
 }
 
+.theory-btn:hover {
+    color: grey;
+}
 /* ----------------Special Classes for Desktop -------------*/
 
 /* ---Boxes and Sections ---*/
