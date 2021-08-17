@@ -49,6 +49,8 @@ def world_theories():
     worlds = mongo.db.world.find()
     return render_template("world_theories.html", page_title="World Theories", worlds=worlds)
 
+
+#Function to add a theory
 @app.route("/add_theories", methods=["GET", "POST"])
 def add_theories():
     if request.method == "POST":
@@ -66,8 +68,20 @@ def add_theories():
     with open("data/theories.json", "r") as json_data:
         data = json.load(json_data)
     return render_template("add_theory.html", page_title="Add a Theory", theories=data)
-#remember to change debug = true to false
 
+
+#Function to edit a theory
+@app.route("/edit_theories/<theory_id>", methods=["GET", "POST"])
+def edit_theories(theory_id):
+    world = mongo.db.world.find_one({"_id": ObjectId(theory_id)})
+
+    data = []
+    with open("data/theories.json", "r") as json_data:
+        data = json.load(json_data)
+    return render_template("edit_theory.html", page_title="Edit a Theory",world=world, theories=data)
+
+
+#remember to change debug = true to false
 if __name__ == "__main__":
     app.run(
         host=os.environ.get("IP"),
