@@ -1,45 +1,66 @@
 {% extends "base.html" %}
 {% block content %}
-  <div class="bg-page">
+  <div class="bg-page register">
     <div>
         <h1 class="col-12 page-title">{{ page_title }}</h1>
     </div>
-    <form method="POST" action="{{ url_for('edit_theories', theory_id=world._id) }}">
-      <!---Categories Selection-->
-      <div class="form-group">
-        <label class="box-text" for="categories"><h2>Categories</h2></label>
-        <small id="emailHelp" class="form-text text-muted">Please Choose a category that best fits your theory</small>
-        <select class="form-control validate" id="category_name" name="category_name">
-          {% for theory in theories %}
-            {% if theory.title == world.title %}
+    <div class="row">
+      <div class="col-2"></div>
+      <div class="col-8 box register-card">
+        <form method="POST" action="{{ url_for('edit_theories', theory_id=world._id) }}">
+          <!---Categories Selection-->
+          <div class="form-group">
+            <label class="box-text" for="categories">
+              <h2>Categories</h2>
+            </label>
+            <small id="emailHelp" class="form-text box-text">Please Choose a category that best fits your
+              theory</small>
+            <select class="form-control validate" id="category_name" name="category_name">
+              {% for theory in theories %}
+              {% if theory.title == world.title %}
               <option value="{{ theory.title }}" selected>{{ theory.title }}</option>
-            {% else %}
+              {% else %}
               <option value="{{ theory.title }}">{{ theory.title }}</option>
-            {% endif %}
-          {% endfor %}
-        </select>
+              {% endif %}
+              {% endfor %}
+            </select>
+          </div>
+          <!---Title Input-->
+          <div class="form-group">
+            <label class="box-text" for="title">
+              <h2>Title</h2>
+            </label>
+            <input type="text" value="{{ world.title }}" class="form-control" id="title" name="title" for="title"
+              aria-describedby="emailHelp" placeholder="Title of your theory">
+          </div>
+          <!---Username Input-->
+          <div class="form-group">
+            <label class="box-text" for="user">
+              <h2>Username</h2>
+            </label>
+            <input type="text" value="{{ world.user }}" class="form-control" id="user" name="user"
+              placeholder="Your name or whatever you want it to be displayed as">
+          </div>
+          <!---Content Input-->
+          <div class="form-group">
+            <label class="box-text" for="content">
+              <h2>Theory</h2>
+            </label>
+            <textarea class="form-control" id="content" name="content" rows="10">{{ world.content }}</textarea>
+          </div>
+          <!---Submit Button-->
+          <button type="submit" class="box box-text create-btn create-btn-title col-md-4 edit-btn" name="submit_theory">
+            <h2>Edit</h2>
+          </button>
+          <!--Cancel Button-->
+          <a href="{{ url_for('world_theories') }}">
+            <button type="button" class="box box-text create-btn create-btn-title col-md-4 edit-btn">
+              <h2>Cancel</h2>
+            </button>
+          </a>
+        </form>
       </div>
-      <!---Title Input-->
-      <div class="form-group">
-        <label class="box-text" for="title"><h2>Title</h2></label>
-        <input type="text" value="{{ world.title }}" class="form-control" id="title" name="title" for="title" aria-describedby="emailHelp" placeholder="Title of your theory">
-      </div>
-      <!---Username Input-->
-      <div class="form-group">
-          <label class="box-text" for="user"><h2>Username</h2></label>
-        <input type="text" value="{{ world.user }}" class="form-control" id="user" name="user" placeholder="Your name or whatever you want it to be displayed as">
-      </div>
-      <!---Content Input-->
-      <div class="form-group">
-          <label class="box-text" for="content"><h2>Theory</h2></label>
-          <textarea class="form-control" id="content" name="content" rows="10">{{ world.content }}</textarea>
-        </div>
-      <!---Submit Button-->
-      <button type="submit" class="box box-text create-btn create-btn-title col-md-4" name="submit_theory"><h2>Edit</h2></button>
-      <!--Cancel Button-->
-      <a href="{{ url_for('world_theories') }}">
-      <button type="button" class="box box-text create-btn create-btn-title col-md-4"><h2>Cancel</h2></button>
-      </a>
-    </form>
+      <div class="col-2"></div>
+    </div>
   </div>
 {% endblock %}
