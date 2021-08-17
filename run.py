@@ -52,13 +52,16 @@ def world_theories():
 @app.route("/add_theories", methods=["GET", "POST"])
 def add_theories():
     if request.method == "POST":
+        #Insert a theory linked to the world_theory category
         world = {
             "title": request.form.get("title"),
             "user": request.form.get("user"),
             "content": request.form.get("content")
         }
         mongo.db.world.insert_one(world)
+        #Message when Theory has been sucessfully added
         flash("Theory Sucessfully Added")
+    #Route for the categories selection into the theories.json
     data = []
     with open("data/theories.json", "r") as json_data:
         data = json.load(json_data)
