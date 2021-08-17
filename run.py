@@ -51,7 +51,10 @@ def world_theories():
 
 @app.route("/add_theories")
 def add_theories():
-    return render_template("add_theory.html", page_title="Add a Theory")
+    data = []
+    with open("data/theories.json", "r") as json_data:
+        data = json.load(json_data)
+    return render_template("add_theory.html", page_title="Add a Theory", theories=data)
 #remember to change debug = true to false
 
 if __name__ == "__main__":
