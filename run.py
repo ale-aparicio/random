@@ -23,24 +23,6 @@ def index():
     return render_template("index.html")
 
 
-# Route for the Explore page connected to the respective Json data page
-@app.route("/explore")
-def explore():
-    data = []
-    with open("data/explore.json", "r") as json_data:
-        data = json.load(json_data)
-    return render_template(
-        "explore.html",
-        page_title="Explore",
-        explore=data
-    )
-
-
-@app.route("/media")
-def media():
-    return render_template("media.html", page_title="Media")
-
-
 # Route for the Theories page connected to the respective Json data page
 
 
