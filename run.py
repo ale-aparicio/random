@@ -98,7 +98,7 @@ def profile(username):
 
     if session["user"]:
         return render_template("profile.html", username=username)
-    
+
     return render_template("profile.html", username=username)
 
 
@@ -175,6 +175,7 @@ def edit_theories(theory_id):
             "content": request.form.get("content")
         }
         # Message when Theory has been sucessfully added
+        mongo.db.world.update({"_id": ObjectId(task_id)}, world_edit)
         flash("Theory Sucessfully Added")
 
     world = mongo.db.world.find_one({"_id": ObjectId(theory_id)})
