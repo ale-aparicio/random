@@ -79,7 +79,6 @@
             {% endblock %} 
         </main>
 `   </div>
-
     <!---Footer-->
     <footer class="container-fluid footercontainer bg-color-footer">
         <div class="row">
@@ -93,9 +92,21 @@
                 <li class="inline-block col-sm">
                     <a href="{{ url_for('add_theories')}}" class="nav-link footer-link">Create</a>
                 </li>
-                <li class="inline-block col-sm">
-                    <a href="{{ url_for('register') }}" class="nav-link footer-link">Sign Up</a>
-                </li>
+                {% if session.user %}
+                    <li class="nav-item list-inline-item">
+                        <a href="{{ url_for('profile', username=session['user']) }}" class="nav-link">Profile</a>
+                    </li>
+                    <li class="nav-item list-inline-item">
+                        <a href="{{ url_for('logout') }}" class="nav-link">Log Out</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item list-inline-item">
+                        <a href="{{ url_for('login') }}" class="nav-link">Log In</a>
+                    </li>
+                    <li class="nav-item list-inline-item">
+                        <a href="{{ url_for('register') }}" class="nav-link">Sign Up</a>
+                    </li>
+                {%endif%}
             </div>
             <div class="col-md">
                 <ul class="social-media">
