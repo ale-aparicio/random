@@ -150,7 +150,7 @@ def character_theories():
 
 @app.route("/fruit_theories")
 def fruit_theories():
-    fruits = mongo.db.character.find()
+    fruits = mongo.db.fruit.find()
     return render_template(
         "fruit_theories.html",
         page_title="Fruit Theories",
