@@ -177,13 +177,14 @@ def crew_theories():
         crews=crews
         )
 
-@app.route("/crew_theories")
-def crew_theories():
-    crews = mongo.db.crew.find()
+
+@app.route("/misc_theories")
+def misc_theories():
+    miscs = mongo.db.misc.find()
     return render_template(
-        "crew_theories.html",
-        page_title="Crew Theories",
-        crews=crews
+        "misc_theories.html",
+        page_title="Mischellaneous Theories",
+        miscs=miscs
         )
 
 
