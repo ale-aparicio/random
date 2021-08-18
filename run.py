@@ -206,7 +206,26 @@ def add_theories():
             "user": request.form.get("user"),
             "content": request.form.get("content")
         }
+        # Insert a theory linked to the fruit_theory category
         fruit = {
+            "title": request.form.get("title"),
+            "user": request.form.get("user"),
+            "content": request.form.get("content")
+        }
+        # Insert a theory linked to the story_theory category
+        story = {
+            "title": request.form.get("title"),
+            "user": request.form.get("user"),
+            "content": request.form.get("content")
+        }
+        # Insert a theory linked to the crew_theory category
+        crew = {
+            "title": request.form.get("title"),
+            "user": request.form.get("user"),
+            "content": request.form.get("content")
+        }
+        # Insert a theory linked to the misc_theory category
+        misc = {
             "title": request.form.get("title"),
             "user": request.form.get("user"),
             "content": request.form.get("content")
@@ -214,6 +233,9 @@ def add_theories():
         mongo.db.world.insert_one(world)
         mongo.db.character.insert_one(character)
         mongo.db.character.insert_one(fruit)
+        mongo.db.character.insert_one(story)
+        mongo.db.character.insert_one(crew)
+        mongo.db.character.insert_one(misc)
         # Message when Theory has been sucessfully added
         flash("Theory Sucessfully Added")
     # Route for the categories selection into the theories.json
