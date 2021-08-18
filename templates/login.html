@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
-    <div class="bg-page register">
+    <div class="bg-page">
         <div class="row">
-            <div class="col-2"></div>
-            <div class="col-8">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
                 <form method="POST" action="{{ url_for('login') }}">
                     <div class="card box" style="width: 100%;">
                         <div class="card-body register-card">
@@ -38,7 +38,7 @@
                     </div>
                 </form>
             </div>
-            <div class="col-2"></div>
+            <div class="col-md-2"></div>
         </div>
     </div>
 {% endblock %}
