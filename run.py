@@ -160,6 +160,7 @@ def add_theories():
             "user": request.form.get("user"),
             "content": request.form.get("content")
         }
+        # Insert a theory linked to the character_theory category
         character = {
             "title": request.form.get("title"),
             "user": request.form.get("user"),
