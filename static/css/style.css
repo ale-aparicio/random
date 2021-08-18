@@ -121,6 +121,10 @@ ul {
     background-color: #70A0BB;
 }
 
+.sub-container {
+    position: relative;
+}
+
 .sub-nav-item {
     opacity: 0;
     visibility: hidden;

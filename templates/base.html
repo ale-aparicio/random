@@ -40,17 +40,12 @@
                             <div class="list-inline-item">
                                 <button type="button" id="search-btn" ><i class="fas fa-search fa-2x"style="color: white"></i></a>
                             </div>
-                            <div>
-                                <a href="{{ url_for }}" class="nav-link">Account</a>
-                                <ul>
-                                    <li class="nav-item sub-nav-item">
-                                        <a href="{{ url_for('register') }}" class="nav-link">Sign Up</a>
-                                    </li>
-                                    <li class="nav-item sub-nav-item">
-                                        <a href="{{ url_for('login') }}" class="nav-link">Log In</a>
-                                    </li>
-                                </ul>
-                            </div>
+                        </li>
+                        <li class="nav-item list-inline-item">
+                            <a href="{{ url_for('register') }}" class="nav-link">Sign Up</a>
+                        </li>
+                        <li class="nav-item list-inline-item">
+                                <a href="{{ url_for('login') }}" class="nav-link">Log In</a>
                         </li>
                     </div>
                 </div>
