@@ -286,14 +286,19 @@ def edit_theories(theory_id):
         }
         # Message when Theory has been sucessfully added
         mongo.db.world.update({"_id": ObjectId(theory_id)}, world_edit)
-        mongo.db.character.update({"_id": ObjectId(theory_id)}, world_edit)
-        mongo.db.fruit.update({"_id": ObjectId(theory_id)}, world_edit)
-        mongo.db.story.update({"_id": ObjectId(theory_id)}, world_edit)
-        mongo.db.crew.update({"_id": ObjectId(theory_id)}, world_edit)
-        mongo.db.misc.update({"_id": ObjectId(theory_id)}, world_edit)
+        mongo.db.character.update({"_id": ObjectId(theory_id)}, character_edit)
+        mongo.db.fruit.update({"_id": ObjectId(theory_id)}, fruit_edit)
+        mongo.db.story.update({"_id": ObjectId(theory_id)}, story_edit)
+        mongo.db.crew.update({"_id": ObjectId(theory_id)}, crew_edit)
+        mongo.db.misc.update({"_id": ObjectId(theory_id)}, misc_edit)
         flash("Theory Sucessfully Added")
 
     world = mongo.db.world.find_one({"_id": ObjectId(theory_id)})
+    character = mongo.db.character.find_one({"_id": ObjectId(theory_id)})
+    fruit = mongo.db.fruit.find_one({"_id": ObjectId(theory_id)})
+    story = mongo.db.story.find_one({"_id": ObjectId(theory_id)})
+    crew = mongo.db.crew.find_one({"_id": ObjectId(theory_id)})
+    misc = mongo.db.misc.find_one({"_id": ObjectId(theory_id)})
     data = []
     with open("data/theories.json", "r") as json_data:
         data = json.load(json_data)
@@ -301,6 +306,11 @@ def edit_theories(theory_id):
         "edit_theory.html",
         page_title="Edit a Theory",
         world=world,
+        character=character,
+        fruit=fruit,
+        story=story,
+        crew=crew,
+        misc=misc,
         theories=data
     )
 
