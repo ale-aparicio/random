@@ -197,42 +197,36 @@ def add_theories():
         # Insert a theory linked to the world_theory category
         world = {
             "title": request.form.get("title"),
-            "user": request.form.get("user"),
             "content": request.form.get("content"),
             "created_by": session["user"]
         }
         # Insert a theory linked to the character_theory category
         character = {
             "title": request.form.get("title"),
-            "user": request.form.get("user"),
             "content": request.form.get("content"),
             "created_by": session["user"]
         }
         # Insert a theory linked to the fruit_theory category
         fruit = {
             "title": request.form.get("title"),
-            "user": request.form.get("user"),
             "content": request.form.get("content"),
             "created_by": session["user"]
         }
         # Insert a theory linked to the story_theory category
         story = {
             "title": request.form.get("title"),
-            "user": request.form.get("user"),
             "content": request.form.get("content"),
             "created_by": session["user"]
         }
         # Insert a theory linked to the crew_theory category
         crew = {
             "title": request.form.get("title"),
-            "user": request.form.get("user"),
             "content": request.form.get("content"),
             "created_by": session["user"]
         }
         # Insert a theory linked to the misc_theory category
         misc = {
             "title": request.form.get("title"),
-            "user": request.form.get("user"),
             "content": request.form.get("content"),
             "created_by": session["user"]
         }
@@ -262,37 +256,31 @@ def edit_theories(theory_id):
         # Update theory linked to the world_theory category
         world_edit = {
             "title": request.form.get("title"),
-            "user": request.form.get("user"),
             "content": request.form.get("content"),
             "created_by": session["user"]
         }
         character_edit = {
             "title": request.form.get("title"),
-            "user": request.form.get("user"),
             "content": request.form.get("content"),
             "created_by": session["user"]
         }
         fruit_edit = {
             "title": request.form.get("title"),
-            "user": request.form.get("user"),
             "content": request.form.get("content"),
             "created_by": session["user"]
         }
         story_edit = {
             "title": request.form.get("title"),
-            "user": request.form.get("user"),
             "content": request.form.get("content"),
             "created_by": session["user"]
         }
         crew_edit = {
             "title": request.form.get("title"),
-            "user": request.form.get("user"),
             "content": request.form.get("content"),
             "created_by": session["user"]
         }
         misc_edit = {
             "title": request.form.get("title"),
-            "user": request.form.get("user"),
             "content": request.form.get("content"),
             "created_by": session["user"]
         }
