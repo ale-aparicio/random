@@ -121,6 +121,18 @@ ul {
     background-color: #70A0BB;
 }
 
+.sub-nav-item {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.sub-nav-item:hover {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+
 /* ----------------Footer -------------*/
 .bg-color-footer {
     background-color: #0094E8;
