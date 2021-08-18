@@ -72,11 +72,11 @@ def login():
             # ensure hashed password matches user input
             if check_password_hash(
                     existing_user["password"], request.form.get("password")):
-                        session["user"] = request.form.get("username").lower()
-                        flash("Welcome, {}".format(
-                            request.form.get("username")))
-                        return redirect(url_for(
-                            "profile", username=session["user"]))
+                session["user"] = request.form.get("username").lower()
+                flash("Welcome, {}".format(
+                    request.form.get("username")))
+                return redirect(url_for(
+                    "profile", username=session["user"]))
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")
@@ -175,7 +175,7 @@ def edit_theories(theory_id):
             "content": request.form.get("content")
         }
         # Message when Theory has been sucessfully added
-        mongo.db.world.update({"_id": ObjectId(task_id)}, world_edit)
+        mongo.db.world.update({"_id": ObjectId(theory_id)}, world_edit)
         flash("Theory Sucessfully Added")
 
     world = mongo.db.world.find_one({"_id": ObjectId(theory_id)})
