@@ -238,10 +238,10 @@ def add_theories():
         }
         mongo.db.world.insert_one(world)
         mongo.db.character.insert_one(character)
-        mongo.db.character.insert_one(fruit)
-        mongo.db.character.insert_one(story)
-        mongo.db.character.insert_one(crew)
-        mongo.db.character.insert_one(misc)
+        mongo.db.fruit.insert_one(fruit)
+        mongo.db.story.insert_one(story)
+        mongo.db.crew.insert_one(crew)
+        mongo.db.misc.insert_one(misc)
         # Message when Theory has been sucessfully added
         flash("Theory Sucessfully Added")
     # Route for the categories selection into the theories.json
