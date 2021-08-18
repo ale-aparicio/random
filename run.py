@@ -198,37 +198,43 @@ def add_theories():
         world = {
             "title": request.form.get("title"),
             "user": request.form.get("user"),
-            "content": request.form.get("content")
+            "content": request.form.get("content"),
+            "created_by": session["user"]
         }
         # Insert a theory linked to the character_theory category
         character = {
             "title": request.form.get("title"),
             "user": request.form.get("user"),
-            "content": request.form.get("content")
+            "content": request.form.get("content"),
+            "created_by": session["user"]
         }
         # Insert a theory linked to the fruit_theory category
         fruit = {
             "title": request.form.get("title"),
             "user": request.form.get("user"),
-            "content": request.form.get("content")
+            "content": request.form.get("content"),
+            "created_by": session["user"]
         }
         # Insert a theory linked to the story_theory category
         story = {
             "title": request.form.get("title"),
             "user": request.form.get("user"),
-            "content": request.form.get("content")
+            "content": request.form.get("content"),
+            "created_by": session["user"]
         }
         # Insert a theory linked to the crew_theory category
         crew = {
             "title": request.form.get("title"),
             "user": request.form.get("user"),
-            "content": request.form.get("content")
+            "content": request.form.get("content"),
+            "created_by": session["user"]
         }
         # Insert a theory linked to the misc_theory category
         misc = {
             "title": request.form.get("title"),
             "user": request.form.get("user"),
-            "content": request.form.get("content")
+            "content": request.form.get("content"),
+            "created_by": session["user"]
         }
         mongo.db.world.insert_one(world)
         mongo.db.character.insert_one(character)
@@ -257,32 +263,38 @@ def edit_theories(theory_id):
         world_edit = {
             "title": request.form.get("title"),
             "user": request.form.get("user"),
-            "content": request.form.get("content")
+            "content": request.form.get("content"),
+            "created_by": session["user"]
         }
         character_edit = {
             "title": request.form.get("title"),
             "user": request.form.get("user"),
-            "content": request.form.get("content")
+            "content": request.form.get("content"),
+            "created_by": session["user"]
         }
         fruit_edit = {
             "title": request.form.get("title"),
             "user": request.form.get("user"),
-            "content": request.form.get("content")
+            "content": request.form.get("content"),
+            "created_by": session["user"]
         }
         story_edit = {
             "title": request.form.get("title"),
             "user": request.form.get("user"),
-            "content": request.form.get("content")
+            "content": request.form.get("content"),
+            "created_by": session["user"]
         }
         crew_edit = {
             "title": request.form.get("title"),
             "user": request.form.get("user"),
-            "content": request.form.get("content")
+            "content": request.form.get("content"),
+            "created_by": session["user"]
         }
         misc_edit = {
             "title": request.form.get("title"),
             "user": request.form.get("user"),
-            "content": request.form.get("content")
+            "content": request.form.get("content"),
+            "created_by": session["user"]
         }
         # Message when Theory has been sucessfully added
         mongo.db.world.update({"_id": ObjectId(theory_id)}, world_edit)

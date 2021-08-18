@@ -26,7 +26,7 @@
                         <button class="btn btn-link collapsed box-text theory-title" data-toggle="collapse" data-target="#{{ crew._id }}" aria-expanded="false" aria-controls="collapseTwo">
                             {{ crew.title }}
                         </button>
-                        {% if session.user|lower == crew.username|lower %}
+                        {% if session.user|lower == crew.created_by|lower %}
                             <a href="{{ url_for('edit_theories', theory_id=crew._id) }}" class="box-text theory-btn edit-btn"><i class="fas fa-edit"></i></a>
                             <a href="" class="box-text theory-btn delete-btn"><i class="fas fa-trash-alt"></i></a>
                         {% endif %}
@@ -34,7 +34,7 @@
                     </div>
                     <div id="{{ crew._id }}" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                         <div class="card-body box-text theory-desc">
-                        {{ crew.user }}<br>
+                        {{ crew.created_by }}<br>
                         <br>
                         {{ crew.content }}<br>
                         </div>
