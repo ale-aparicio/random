@@ -15,7 +15,7 @@
             <small id="emailHelp" class="form-text box-text">Please Choose a category that best fits your theory</small>
             <select class="form-control validate forms" id="category_name" name="category_name">
               {% for theory in theories %}
-              <option value="{{ theory.title }}">{{ theory.title }}</option>
+                <option value="{{ theory.title }}">{{ theory.title }}</option>
               {% endfor %}
             </select>
           </div>
