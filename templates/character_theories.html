@@ -2,39 +2,48 @@
 {% block content %}
 
     <!---Banner-->
-    <img src="{{ url_for('static', filename='images/world-theories-banner.png') }}" alt="Banner Image" class="banner">
+    <img src="{{ url_for('static', filename='images/character_theory_banner.png') }}" alt="Banner Image" class="banner">
     <!---Sections-->
-    <div class="bg-page">
+    <div class="bg-page ">
         <div>
             <h1 class="col-12 page-title">{{ page_title }}</h1>
         </div>
-
-        {% for theory in theories %}
-
-            {% if loop.index % 2 != 0 %}
-
-
-                <div  class="col-md-12 d-inline-flex explore-content">
-                    <div class="col-sm-6 btn-container">
-                        <a href="" class="explore-btn"><img src="{{ theory.image_source }}" alt="Explore Btn"></a>
-                        <p>{{ theory.title}}</p>
+        <div class="row">
+            <div class="col-md-5 sections">
+                <a href="{{ url_for('add_theories') }}">
+                    <button type="submit" onclick="" class="box create-btn">
+                        <h5 class="box-text create-btn-title">Create Theory</h5>
+                    </button>
+                </a>
+            </div>
+        </div>
+        <br>
+        {% for character in characters %}
+            <div id="accordion">
+                    <div class="col-12 card box">
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                        <button class="btn btn-link collapsed box-text theory-title" data-toggle="collapse" data-target="#{{ character._id }}" aria-expanded="false" aria-controls="collapseTwo">
+                            {{ character.title }}
+                        </button>
+                        {% if session.user|lower == character.username|lower %}
+                            <a href="{{ url_for('edit_theories', theory_id=character._id) }}" class="box-text theory-btn edit-btn"><i class="fas fa-edit"></i></a>
+                            <a href="" class="box-text theory-btn delete-btn"><i class="fas fa-trash-alt"></i></a>
+                        {% endif %}
+                        </h5>
                     </div>
-
-
-            {% else %}
-                    
-
-                    <div class="col-sm-6 btn-container">
-                        <a href="" class="explore-btn"><img src="{{ theory.image_source }}" alt="Explore Btn"></a>
-                        <p>{{ theory.title}}</p>
+                    <div id="{{ character._id }}" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                        <div class="card-body box-text theory-desc">
+                        {{ character.user }}<br>
+                        <br>
+                        {{ character.content }}<br>
+                        </div>
                     </div>
-                </div>
-                
-
-            {% endif %}
-
+                    </div>
+            </div>
+            <br>
         {% endfor %}
-
+        
     </div>
 
 {% endblock %}
