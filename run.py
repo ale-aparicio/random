@@ -160,7 +160,13 @@ def add_theories():
             "user": request.form.get("user"),
             "content": request.form.get("content")
         }
+        character = {
+            "title": request.form.get("title"),
+            "user": request.form.get("user"),
+            "content": request.form.get("content")
+        }
         mongo.db.world.insert_one(world)
+        mongo.db.character.insert_one(character)
         # Message when Theory has been sucessfully added
         flash("Theory Sucessfully Added")
     # Route for the categories selection into the theories.json
