@@ -138,6 +138,16 @@ def world_theories():
         )
 
 
+@app.route("/character_theories")
+def character_theories():
+    characters = mongo.db.character.find()
+    return render_template(
+        "character_theories.html",
+        page_title="Character Theories",
+        characters=characters
+        )
+
+
 # Function to add a theory
 
 
