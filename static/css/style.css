@@ -58,6 +58,10 @@ ul {
 .flashes h4{
     line-height: 2;
 }
+
+.t-center{
+    text-align: center;
+}
 /* ----------------Heading -------------*/
 .bg-color-navbar {
     background-color: #0094E8;
