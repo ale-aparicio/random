@@ -2,7 +2,7 @@
 {% block content %}
 
     <!---Banner-->
-    <img src="{{ url_for('static', filename='images/world-theories-banner.png') }}" alt="Banner Image" class="banner">
+    <img src="{{ url_for('static', filename='images/devil-fruit-banner.jng') }}" alt="Banner Image" class="banner">
     <!---Sections-->
     <div class="bg-page ">
         <div>
@@ -18,25 +18,25 @@
             </div>
         </div>
         <br>
-        {% for world in worlds %}
+        {% for fruit in fruits %}
             <div id="accordion">
                     <div class="col-12 card box">
                     <div class="card-header" id="headingOne">
                         <h5 class="mb-0">
                         <button class="btn btn-link collapsed box-text theory-title" data-toggle="collapse" data-target="#{{ world._id }}" aria-expanded="false" aria-controls="collapseTwo">
-                            {{ world.title }}
+                            {{ fruit.title }}
                         </button>
-                        {% if session.user|lower == world.username|lower %}
-                            <a href="{{ url_for('edit_theories', theory_id=world._id) }}" class="box-text theory-btn edit-btn"><i class="fas fa-edit"></i></a>
+                        {% if session.user|lower == fruit.username|lower %}
+                            <a href="{{ url_for('edit_theories', theory_id=fruit._id) }}" class="box-text theory-btn edit-btn"><i class="fas fa-edit"></i></a>
                             <a href="" class="box-text theory-btn delete-btn"><i class="fas fa-trash-alt"></i></a>
                         {% endif %}
                         </h5>
                     </div>
-                    <div id="{{ world._id }}" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                    <div id="{{ fruit._id }}" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                         <div class="card-body box-text theory-desc">
-                        {{ world.user }}<br>
+                        {{ fruit.user }}<br>
                         <br>
-                        {{ world.content }}<br>
+                        {{ fruit.content }}<br>
                         </div>
                     </div>
                     </div>
