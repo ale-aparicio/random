@@ -148,6 +148,16 @@ def character_theories():
         )
 
 
+@app.route("/fruit_theories")
+def fruit_theories():
+    fruits = mongo.db.character.find()
+    return render_template(
+        "fruit_theories.html",
+        page_title="Fruit Theories",
+        fruits=fruits
+        )
+
+
 # Function to add a theory
 
 
@@ -166,8 +176,14 @@ def add_theories():
             "user": request.form.get("user"),
             "content": request.form.get("content")
         }
+        fruit = {
+            "title": request.form.get("title"),
+            "user": request.form.get("user"),
+            "content": request.form.get("content")
+        }
         mongo.db.world.insert_one(world)
         mongo.db.character.insert_one(character)
+        mongo.db.character.insert_one(fruit)
         # Message when Theory has been sucessfully added
         flash("Theory Sucessfully Added")
     # Route for the categories selection into the theories.json
