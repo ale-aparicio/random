@@ -177,6 +177,15 @@ def crew_theories():
         crews=crews
         )
 
+@app.route("/crew_theories")
+def crew_theories():
+    crews = mongo.db.crew.find()
+    return render_template(
+        "crew_theories.html",
+        page_title="Crew Theories",
+        crews=crews
+        )
+
 
 # Function to add a theory
 
