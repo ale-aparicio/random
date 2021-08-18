@@ -259,8 +259,38 @@ def edit_theories(theory_id):
             "user": request.form.get("user"),
             "content": request.form.get("content")
         }
+        character_edit = {
+            "title": request.form.get("title"),
+            "user": request.form.get("user"),
+            "content": request.form.get("content")
+        }
+        fruit_edit = {
+            "title": request.form.get("title"),
+            "user": request.form.get("user"),
+            "content": request.form.get("content")
+        }
+        story_edit = {
+            "title": request.form.get("title"),
+            "user": request.form.get("user"),
+            "content": request.form.get("content")
+        }
+        crew_edit = {
+            "title": request.form.get("title"),
+            "user": request.form.get("user"),
+            "content": request.form.get("content")
+        }
+        misc_edit = {
+            "title": request.form.get("title"),
+            "user": request.form.get("user"),
+            "content": request.form.get("content")
+        }
         # Message when Theory has been sucessfully added
         mongo.db.world.update({"_id": ObjectId(theory_id)}, world_edit)
+        mongo.db.character.update({"_id": ObjectId(theory_id)}, world_edit)
+        mongo.db.fruit.update({"_id": ObjectId(theory_id)}, world_edit)
+        mongo.db.story.update({"_id": ObjectId(theory_id)}, world_edit)
+        mongo.db.crew.update({"_id": ObjectId(theory_id)}, world_edit)
+        mongo.db.misc.update({"_id": ObjectId(theory_id)}, world_edit)
         flash("Theory Sucessfully Added")
 
     world = mongo.db.world.find_one({"_id": ObjectId(theory_id)})
