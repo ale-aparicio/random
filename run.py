@@ -175,7 +175,7 @@ def crew_theories():
         "crew_theories.html",
         page_title="Crew Theories",
         crews=crews
-        )        
+        )
 
 
 # Function to add a theory
