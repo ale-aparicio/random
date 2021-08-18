@@ -158,6 +158,16 @@ def fruit_theories():
         )
 
 
+@app.route("/story_theories")
+def story_theories():
+    stories = mongo.db.story.find()
+    return render_template(
+        "story_theories.html",
+        page_title="Story Theories",
+        stories=stories
+        )
+
+
 # Function to add a theory
 
 
