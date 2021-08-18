@@ -17,11 +17,11 @@
               theory</small>
             <select class="form-control validate forms" id="category_name" name="category_name">
               {% for theory in theories %}
-              {% if theory.title == world.title %}
-              <option value="{{ theory.title }}" selected>{{ theory.title }}</option>
-              {% else %}
-              <option value="{{ theory.title }}">{{ theory.title }}</option>
-              {% endif %}
+                {% if theory.title == world.title, character.title, fruit.title, story.title, crew.title, misc.title, %}
+                  <option value="{{ theory.title }}" selected>{{ theory.title }}</option>
+                {% else %}
+                  <option value="{{ theory.title }}">{{ theory.title }}</option>
+                {% endif %}
               {% endfor %}
             </select>
           </div>
