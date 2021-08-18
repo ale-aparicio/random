@@ -41,15 +41,22 @@
                                 <button type="button" id="search-btn" ><i class="fas fa-search fa-2x"style="color: white"></i></a>
                             </div>
                         </li>
-                        <li class="nav-item list-inline-item">
-                            <a href="{{ url_for('login') }}" class="nav-link">Log In</a>
-                        </li> 
-                        <li class="nav-item list-inline-item">
-                            <a href="{{ url_for('register') }}" class="nav-link">Sign Up</a>
-                        </li>
-                        <li class="nav-item list-inline-item">
-                            <a href="{{ url_for('profile', username=session['user']) }}" class="nav-link">Profile</a>
-                        </li>
+                        {% if session.user %}
+                            <li class="nav-item list-inline-item">
+                                <a href="{{ url_for('profile', username=session['user']) }}" class="nav-link">Profile</a>
+                            </li>
+                            <li class="nav-item list-inline-item">
+                                <a href="{{ url_for('logout') }}" class="nav-link">Log Out</a>
+                            </li>
+                        {% else %}
+                            <li class="nav-item list-inline-item">
+                                <a href="{{ url_for('login') }}" class="nav-link">Log In</a>
+                            </li> 
+                            <li class="nav-item list-inline-item">
+                                <a href="{{ url_for('register') }}" class="nav-link">Sign Up</a>
+                            </li>
+                        {%endif%}
+                        
                     </div>
                 </div>
             </div>
