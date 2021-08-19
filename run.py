@@ -315,6 +315,18 @@ def edit_theories(theory_id):
     )
 
 
+@app.route("/delete_theories/<theory_id>")
+def delete_theories(theory_id):
+    mongo.db.world.remove({"_id": ObjectId(theory_id)})
+    mongo.db.character.remove({"_id": ObjectId(theory_id)})
+    mongo.db.fruit.remove({"_id": ObjectId(theory_id)})
+    mongo.db.story.remove({"_id": ObjectId(theory_id)})
+    mongo.db.crew.remove({"_id": ObjectId(theory_id)})
+    mongo.db.misc.remove({"_id": ObjectId(theory_id)})
+    flash("Theory Successfully Deleted")
+    return redirect(url_for("index"))
+
+
 # remember to change debug = true to false
 
 
