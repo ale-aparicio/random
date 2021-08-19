@@ -194,50 +194,46 @@ def misc_theories():
 @app.route("/add_theories", methods=["GET", "POST"])
 def add_theories():
     if request.method == "POST":
-        # Insert a theory linked to the world_theory category
-        world = {
-            "title": request.form.get("title"),
-            "content": request.form.get("content"),
-            "created_by": session["user"]
-        }
-        # Insert a theory linked to the character_theory category
-        character = {
-            "title": request.form.get("title"),
-            "content": request.form.get("content"),
-            "created_by": session["user"]
-        }
-        # Insert a theory linked to the fruit_theory category
-        fruit = {
-            "title": request.form.get("title"),
-            "content": request.form.get("content"),
-            "created_by": session["user"]
-        }
-        # Insert a theory linked to the story_theory category
-        story = {
-            "title": request.form.get("title"),
-            "content": request.form.get("content"),
-            "created_by": session["user"]
-        }
-        # Insert a theory linked to the crew_theory category
-        crew = {
-            "title": request.form.get("title"),
-            "content": request.form.get("content"),
-            "created_by": session["user"]
-        }
-        # Insert a theory linked to the misc_theory category
-        misc = {
-            "title": request.form.get("title"),
-            "content": request.form.get("content"),
-            "created_by": session["user"]
-        }
-        mongo.db.world.insert_one(world)
-        mongo.db.character.insert_one(character)
-        mongo.db.fruit.insert_one(fruit)
-        mongo.db.story.insert_one(story)
-        mongo.db.crew.insert_one(crew)
-        mongo.db.misc.insert_one(misc)
+        category_name = request.form.get('category_name').lower()
+        theory = {
+                "title": request.form.get("title"),
+                "content": request.form.get("content"),
+                "created_by": session["user"]
+            }
+        if category_name == "world theories":
+            # Insert a theory linked to the world_theory category
+            mongo.db.world.insert_one(theory)
+            flash("Theory Sucessfully Added")
+            return redirect(url_for("world_theories"))
+        elif category_name == "character theories":
+            # Insert a theory linked to the character_theory category
+            mongo.db.character.insert_one(theory)
+            flash("Theory Sucessfully Added")
+            return redirect(url_for("character_theories"))
+        elif category_name == "devil fruit theories":
+            # Insert a theory linked to the fruit_theory category
+            mongo.db.fruit.insert_one(theory)
+            flash("Theory Sucessfully Added")
+            return redirect(url_for("fruit_theories"))
+        elif category_name == "story theories":
+            # Insert a theory linked to the story_theory category
+            mongo.db.story.insert_one(theory)
+            flash("Theory Sucessfully Added")
+            return redirect(url_for("story_theories"))
+        elif category_name == "crew theories":
+            # Insert a theory linked to the crew_theory category
+            mongo.db.crew.insert_one(theory)
+            flash("Theory Sucessfully Added")
+            return redirect(url_for("crew_theories"))
+        elif category_name == "mischellaneous theories":
+            # Insert a theory linked to the misc_theory category
+            mongo.db.misc.insert_one(theory)
+            flash("Theory Sucessfully Added")
+            return redirect(url_for("misc_theories"))
+
         # Message when Theory has been sucessfully added
         flash("Theory Sucessfully Added")
+
     # Route for the categories selection into the theories.json
     data = []
     with open("data/theories.json", "r") as json_data:
