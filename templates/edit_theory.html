@@ -7,7 +7,7 @@
     <div class="row">
       <div class="col-md-2"></div>
       <div class="col-md-8 box register-card">
-        <form method="POST" action="{{ url_for('edit_theories', theory_id=content._id) }}">
+        <form method="POST" action="{{ url_for('edit_theories', theory_id=content._id, category='world') }}">
           <!---Title Input-->
           <div class="form-group">
             <label class="box-text" for="title">
