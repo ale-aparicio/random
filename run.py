@@ -246,53 +246,46 @@ def add_theories():
 @app.route("/edit_theories/<theory_id>", methods=["GET", "POST"])
 def edit_theories(theory_id):
     if request.method == "POST":
-        category_name = request.form.get('category_name').lower()
         theory_edit = {
             "title": request.form.get("title"),
             "content": request.form.get("content"),
             "created_by": session["user"]
         }
         # Edit a theory linked to the world_theory category
-        if category_name == "world theories":
-            mongo.db.world.update({"_id": ObjectId(theory_id)}, theory_edit)
+        if mongo.db.world.update({"_id": ObjectId(theory_id)}, theory_edit):
             flash("World Theory Sucessfully Updated")
-            return redirect(url_for("character_theories"))
+            return redirect(url_for("world_theories"))
         # Insert a theory linked to the character_theory category
-        elif category_name == "character theories":
-            mongo.db.character.update({
-                "_id": ObjectId(theory_id)},
-                theory_edit)
+        elif mongo.db.character.update({
+                "_id": ObjectId(theory_id)}, theory_edit):
             flash("Character Theory Sucessfully Updated")
             return redirect(url_for("character_theories"))
         # Edit a theory linked to the fruit_theory category
-        elif category_name == "devil fruit theories":
-            mongo.db.fruit.update({
-                "_id": ObjectId(theory_id)},
-                theory_edit)
+        elif mongo.db.fruit.update({"_id": ObjectId(theory_id)}, theory_edit):
             flash("Fruit Theory Sucessfully Updated")
             return redirect(url_for("fruit_theories"))
         # Edit a theory linked to the story_theory category
-        elif category_name == "story theories":
-            mongo.db.story.update({
-                "_id": ObjectId(theory_id)},
-                theory_edit)
+        elif mongo.db.story.update({"_id": ObjectId(theory_id)}, theory_edit):
+            flash("Story  Theory Sucessfully Updated")
+            return redirect(url_for("story_theories"))
         # Edit a theory linked to the crew_theory category
-        elif category_name == "crew theories":
-            mongo.db.crew.update({
-                "_id": ObjectId(theory_id)},
-                theory_edit)
+        elif mongo.db.crew.update({"_id": ObjectId(theory_id)}, theory_edit):
+            flash("Crew Theory Sucessfully Updated")
+            return redirect(url_for("crew_theories"))
         # Edit a theory linked to the misc_theory category
-        elif category_name == "mischellaneous theories":
-            mongo.db.misc.update({
-                "_id": ObjectId(theory_id)},
-                theory_edit)
+        elif mongo.db.misc.update({"_id": ObjectId(theory_id)}, theory_edit):
+            flash("Mischellaneous Theories Theory Sucessfully Updated")
+            return redirect(url_for("misc_theories"))
 
-    content = mongo.db.world.find_one({"_id": ObjectId(theory_id)})
-    #content = mongo.db.character.find_one({"_id": ObjectId(theory_id)})
-    #content = mongo.db.fruit.find_one({"_id": ObjectId(theory_id)})
-    #content = mongo.db.story.find_one({"_id": ObjectId(theory_id)})
-    #content = mongo.db.crew.find_one({"_id": ObjectId(theory_id)})
-    #content = mongo.db.misc.find_one({"_id": ObjectId(theory_id)})
+    content = {
+        'world': mongo.db.world.find_one({"_id": ObjectId(theory_id)}),
+        'character': mongo.db.character.find_one({
+            "_id": ObjectId(theory_id)}),
+        'fruit': mongo.db.fruit.find_one({"_id": ObjectId(theory_id)}),
+        'story': mongo.db.story.find_one({"_id": ObjectId(theory_id)}),
+        'crew': mongo.db.crew.find_one({"_id": ObjectId(theory_id)}),
+        'misc': mongo.db.misc.find_one({"_id": ObjectId(theory_id)})
+    }
     # Route for the categories selection into the theories.json
     data = []
     with open("data/theories.json", "r") as json_data:
