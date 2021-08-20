@@ -254,7 +254,7 @@ def edit_theories(theory_id, category):
         # Edit a theory linked to the world_theory category
         if mongo.db.category.update_one({
             "_id": ObjectId(theory_id)},
-                    theory_edit,):
+                    theory_edit):
             flash("World Theory Sucessfully Updated")
             return redirect(url_for("world_theories"))
         # Insert a theory linked to the character_theory category
