@@ -254,12 +254,13 @@ def edit_theories(theory_id):
         }
         # Edit a theory linked to the world_theory category
         if category_name == "world theories":
-            theories = mongo.db.world.find_one({"_id": ObjectId(theory_id)})
             mongo.db.world.update({"_id": ObjectId(theory_id)}, theory_edit)
+            content = mongo.db.world.find_one({"_id": ObjectId(theory_id)})
             flash("World Theory Sucessfully Updated")
-            return redirect(url_for("world_theories"))
+            return render_template("world_theories.html")
         # Insert a theory linked to the character_theory category
         elif category_name == "character theories":
+            content = mongo.db.character.find_one({"_id": ObjectId(theory_id)})
             mongo.db.character.update({
                 "_id": ObjectId(theory_id)},
                 theory_edit)
@@ -267,32 +268,30 @@ def edit_theories(theory_id):
             return redirect(url_for("character_theories"))
         # Edit a theory linked to the fruit_theory category
         elif category_name == "devil fruit theories":
+            content = mongo.db.fruit.find_one({"_id": ObjectId(theory_id)})
             mongo.db.fruit.update({
                 "_id": ObjectId(theory_id)},
                 theory_edit)
-            theories = mongo.db.fruit.find_one({"_id": ObjectId(theory_id)})
             flash("Fruit Theory Sucessfully Updated")
             return redirect(url_for("fruit_theories"))
         # Edit a theory linked to the story_theory category
         elif category_name == "story theories":
+            content = mongo.db.story.find_one({"_id": ObjectId(theory_id)})
             mongo.db.story.update({
                 "_id": ObjectId(theory_id)},
                 theory_edit)
         # Edit a theory linked to the crew_theory category
         elif category_name == "crew theories":
+            content = mongo.db.crew.find_one({"_id": ObjectId(theory_id)})
             mongo.db.crew.update({
                 "_id": ObjectId(theory_id)},
                 theory_edit)
         # Edit a theory linked to the misc_theory category
         elif category_name == "mischellaneous theories":
+            content = mongo.db.misc.find_one({"_id": ObjectId(theory_id)})
             mongo.db.misc.update({
                 "_id": ObjectId(theory_id)},
                 theory_edit)
-
-    theories = mongo.db.character.find_one({"_id": ObjectId(theory_id)})
-    #stories = mongo.db.story.find_one({"_id": ObjectId(theory_id)})
-    #crews = mongo.db.crew.find_one({"_id": ObjectId(theory_id)})
-    #miscs = mongo.db.misc.find_one({"_id": ObjectId(theory_id)})
 
     # Route for the categories selection into the theories.json
     data = []
@@ -301,12 +300,7 @@ def edit_theories(theory_id):
     return render_template(
         "edit_theory.html",
         page_title="Edit a Theory",
-        worlds=theories,
-        characters=theories,
-        fruits=theories,
-        #stories=stories,
-        #crews=crews,
-        #miscs=miscs,
+        content=content
         theories=data
     )
 
