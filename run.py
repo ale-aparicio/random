@@ -252,13 +252,32 @@ def edit_theories(theory_id, category):
             "created_by": session["user"]
         }
         # Edit a theory linked to the world_theory category
-        if category == 'world':
-            mongo.db.category.update_one({"_id": ObjectId(theory_id)}, theory_edit)
+        if mongo.db.world.update_one({"_id": ObjectId(theory_id)}, theory_edit):
             flash("World Theory Sucessfully Updated")
             return redirect(url_for("world_theories"))
         # Insert a theory linked to the character_theory category
-        
-    world = mongo.db.world.find_one({"_id": ObjectId(theory_id)})
+        elif mongo.db.character.update({
+                "_id": ObjectId(theory_id)}, theory_edit):
+            flash("Character Theory Sucessfully Updated")
+            return redirect(url_for("character_theories"))
+        # Edit a theory linked to the fruit_theory category
+        elif mongo.db.fruit.update({"_id": ObjectId(theory_id)}, theory_edit):
+            flash("Fruit Theory Sucessfully Updated")
+            return redirect(url_for("fruit_theories"))
+        # Edit a theory linked to the story_theory category
+        elif mongo.db.story.update({"_id": ObjectId(theory_id)}, theory_edit):
+            flash("Story  Theory Sucessfully Updated")
+            return redirect(url_for("story_theories"))
+        # Edit a theory linked to the crew_theory category
+        elif mongo.db.crew.update({"_id": ObjectId(theory_id)}, theory_edit):
+            flash("Crew Theory Sucessfully Updated")
+            return redirect(url_for("crew_theories"))
+        # Edit a theory linked to the misc_theory category
+        elif mongo.db.misc.update({"_id": ObjectId(theory_id)}, theory_edit):
+            flash("Mischellaneous Theories Theory Sucessfully Updated")
+            return redirect(url_for("misc_theories"))
+
+    content = mongo.db.world.find_one({"_id": ObjectId(theory_id)})
     #content = mongo.db.character.find_one({"_id": ObjectId(theory_id)})
     #content = mongo.db.fruit.find_one({"_id": ObjectId(theory_id)})
     #content = mongo.db.story.find_one({"_id": ObjectId(theory_id)})
@@ -271,7 +290,8 @@ def edit_theories(theory_id, category):
     return render_template(
         "edit_theory.html",
         page_title="Edit a Theory",
-        content=world,
+        world=content,
+        content=content,
         theories=data
     )
 
