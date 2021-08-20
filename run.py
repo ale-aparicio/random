@@ -252,13 +252,12 @@ def edit_theories(theory_id, category):
             "created_by": session["user"]
         }
         # Edit a theory linked to the world_theory category
-        if mongo.db.category.update_one({
-            "_id": ObjectId(theory_id)},
-                    theory_edit):
+        if category == 'world':
+            mongo.db.category.update_one({"_id": ObjectId(theory_id)}, theory_edit)
             flash("World Theory Sucessfully Updated")
             return redirect(url_for("world_theories"))
         # Insert a theory linked to the character_theory category
-
+        
     world = mongo.db.world.find_one({"_id": ObjectId(theory_id)})
     #content = mongo.db.character.find_one({"_id": ObjectId(theory_id)})
     #content = mongo.db.fruit.find_one({"_id": ObjectId(theory_id)})
