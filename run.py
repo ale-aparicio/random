@@ -246,17 +246,25 @@ def add_theories():
 @app.route("/edit_theories/<theory_id>", methods=["GET", "POST"])
 def edit_theories(theory_id, category):
     if request.method == "POST":
+        mongo.db.category.update_one(
+            'world',
+            'character',
+            'fruit',
+            'story',
+            'crew',
+            'misc')
         theory_edit = {
             "title": request.form.get("title"),
             "content": request.form.get("content"),
             "created_by": session["user"]
         }
         # Edit a theory linked to the world_theory category
-        if category == 'world':
-            mongo.db.category('world').update_one({"_id": ObjectId(theory_id)}, theory_edit)
+        if mongo.db.category.update_one('world'):
+            mongo.db.character.update({
+                "_id": ObjectId(theory_id)}, theory_edit)
             flash("World Theory Sucessfully Updated")
             return redirect(url_for("world_theories"))
-        # Insert a theory linked to the character_theory category
+            # Edit a theory linked to the fruit_theory category
         elif mongo.db.character.update({
                 "_id": ObjectId(theory_id)}, theory_edit):
             flash("Character Theory Sucessfully Updated")
@@ -278,11 +286,11 @@ def edit_theories(theory_id, category):
             flash("Mischellaneous Theories Theory Sucessfully Updated")
             return redirect(url_for("misc_theories"))
 
-    #mongo.db.character.find_one({"_id": ObjectId(theory_id)})
-    #content = mongo.db.fruit.find_one({"_id": ObjectId(theory_id)})
-    #content = mongo.db.story.find_one({"_id": ObjectId(theory_id)})
-    #content = mongo.db.crew.find_one({"_id": ObjectId(theory_id)})
-    #content = mongo.db.misc.find_one({"_id": ObjectId(theory_id)})
+    mongo.db.character.find_one({"_id": ObjectId(theory_id)})
+    mongo.db.fruit.find_one({"_id": ObjectId(theory_id)})
+    mongo.db.story.find_one({"_id": ObjectId(theory_id)})
+    mongo.db.crew.find_one({"_id": ObjectId(theory_id)})
+    mongo.db.misc.find_one({"_id": ObjectId(theory_id)})
     # Route for the categories selection into the theories.json
     data = []
     with open("data/theories.json", "r") as json_data:
