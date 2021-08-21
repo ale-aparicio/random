@@ -448,4 +448,4 @@ The developer would like to thanks the following:
 
 * Their Mentor Seun, for her great advice and great help and ideas.
 
-* Their fmaily and friends, for providing an enourmous amount of patience and understanding aswell as being extremelly supporting throughout the whole process.
+* Their family and friends, for providing an enourmous amount of patience and understanding aswell as being extremelly supporting throughout the whole process.
