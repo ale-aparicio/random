@@ -26,9 +26,15 @@
                         <li class="nav-item list-inline-item">
                             <a href="{{ url_for('theories') }}" class="nav-link">Theories</a>
                         </li>
-                        <li class="nav-item list-inline-item">
-                            <a href="{{ url_for('add_theories') }}" class="nav-link">Create</a>
-                        </li>
+                        {% if session.user %}
+                            <li class="nav-item list-inline-item">
+                                <a href="{{ url_for('add_theories') }}" class="nav-link">Create</a>
+                            </li>
+                        {% else %}
+                            <li class="nav-item list-inline-item">
+                                <a href="{{ url_for('login') }}" class="nav-link">Create</a>
+                            </li>
+                        {% endif %}
                     </div>
                     <div class="nav-elements-right">
                         {% if session.user %}
@@ -79,9 +85,15 @@
                 <li class="inline-block col-sm">
                     <a href="{{ url_for('theories')}}" class="nav-link footer-link">Theories</a>
                 </li>
-                <li class="inline-block col-sm">
-                    <a href="{{ url_for('add_theories')}}" class="nav-link footer-link">Create</a>
-                </li>
+                {% if session.user %}
+                            <li class="inline-block col-sm">
+                                <a href="{{ url_for('add_theories') }}" class="nav-link footer-link">Create</a>
+                            </li>
+                        {% else %}
+                            <li class="inline-block col-sm">
+                                <a href="{{ url_for('login') }}" class="nav-link footer-link">Create</a>
+                            </li>
+                        {% endif %}
                 {% if session.user %}
                     <li class="inline-block col-sm">
                         <a href="{{ url_for('profile', username=session['user']) }}" class="nav-link footer-link">Profile</a>
