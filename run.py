@@ -244,7 +244,7 @@ def add_theories():
 
 
 @app.route("/edit_theories/<theory_id>", methods=["GET", "POST"])
-def edit_theories(theory_id):
+def edit_theories(theory_id, category):
     if request.method == "POST":
         theory_edit = {
             "title": request.form.get("title"),
@@ -252,7 +252,8 @@ def edit_theories(theory_id):
             "created_by": session["user"]
         }
         # Edit a theory linked to the world_theory category
-        if mongo.db.world.update({"_id": ObjectId(theory_id)}, theory_edit):
+        if category == 'world':
+            mongo.db.category('world').update_one({"_id": ObjectId(theory_id)}, theory_edit)
             flash("World Theory Sucessfully Updated")
             return redirect(url_for("world_theories"))
         # Insert a theory linked to the character_theory category
@@ -277,8 +278,7 @@ def edit_theories(theory_id):
             flash("Mischellaneous Theories Theory Sucessfully Updated")
             return redirect(url_for("misc_theories"))
 
-    content = mongo.db.world.find_one({"_id": ObjectId(theory_id)})
-    #content = mongo.db.character.find_one({"_id": ObjectId(theory_id)})
+    #mongo.db.character.find_one({"_id": ObjectId(theory_id)})
     #content = mongo.db.fruit.find_one({"_id": ObjectId(theory_id)})
     #content = mongo.db.story.find_one({"_id": ObjectId(theory_id)})
     #content = mongo.db.crew.find_one({"_id": ObjectId(theory_id)})
