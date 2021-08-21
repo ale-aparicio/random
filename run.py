@@ -244,7 +244,7 @@ def add_theories():
 
 
 @app.route("/edit_theories/<theory_id>", methods=["GET", "POST"])
-def edit_theories(theory_id, category):
+def edit_theories(theory_id):
     if request.method == "POST":
         theory_edit = {
             "title": request.form.get("title"),
@@ -252,7 +252,7 @@ def edit_theories(theory_id, category):
             "created_by": session["user"]
         }
         # Edit a theory linked to the world_theory category
-        if mongo.db.world.update_one({"_id": ObjectId(theory_id)}, theory_edit):
+        if mongo.db.world.update({"_id": ObjectId(theory_id)}, theory_edit):
             flash("World Theory Sucessfully Updated")
             return redirect(url_for("world_theories"))
         # Insert a theory linked to the character_theory category
@@ -290,7 +290,6 @@ def edit_theories(theory_id, category):
     return render_template(
         "edit_theory.html",
         page_title="Edit a Theory",
-        world=content,
         content=content,
         theories=data
     )
