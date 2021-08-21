@@ -13,7 +13,23 @@ The inspiration for the website came from the countless theories roaming around 
     3. [Development Planes](#Development-Planes)
 2. [Data Schema](#Data-Schema)
     1. [Users Collection](#Users-Collection)
-    2. [Theories Collection](Theories-Collection)
+    2. [Theories Collection](#Theories-Collection)
+3. [Features](#Features)
+    1. [Design Features](#Design-Features)
+    2. [Features to Implement in the Future](#Features-to-Implement-in-the-Future)
+4. [Issues and Bugs](#Issues-and-Bugs)
+5. [Technologies Used](#Technologies-Used)
+    1. [Languages](#Languages)
+    2. [Tools](#Tools)
+    3. [Libraries](#Libraries)
+    4. [Database Management](#Database-Management)
+6. [Testing](#Testing)
+7. [Deployment](#Deployment)
+    1. [Database Creation](#Database-Creation)
+    2. [Local Copy Creation](#Local-Copy-Creation)
+    3. [Heroku App Creation](#Heroku-App-Creation)
+8. [Credits](Credits)
+9. [Acknowledgements](#Acknowledgements)
 
 # UX 
 ## Project Goals
@@ -256,7 +272,7 @@ Each page of the website is fully responsive and has an adaptable navbar so it c
 * **Gitpod**
     * Git Pod was used as the preferred IDE.
 
-* [Git Hub](https://github.com/)
+* [GitHub](https://github.com/)
     * Git Hub was used to store the project repository.
 
 * [Heroku](https://id.heroku.com/login)
@@ -279,17 +295,157 @@ Each page of the website is fully responsive and has an adaptable navbar so it c
 * [Bootstrap](https://getbootstrap.com/)
     * Used as the css framework used to implement the responsiveness of the site.
 
-*
+* [jQuery](https://jquery.com/)
+    * Was used to simplify the JavaScript code used. 
+
+* [Google Fonts](https://fonts.google.com/)
+    * Google fonts was used to import the "Piedra" and the "Pirata" fonts used throughout the website.
+    
+* [Flask](https://flask.palletsprojects.com/en/2.0.x/) 
+    * Glask was used as the web framework for the application.
+
+* [PyMongo](https://pypi.org/project/pymongo/)
+    * flask_pymongo was used a communication line between the MongoDB database and Python.
+
+* [Werkzeug](https://werkzeug.palletsprojects.com/en/2.0.x/)
+    * Werkzeug was used for password hashing and authentication.
+
+## Database Management 
+* [MongoDB](https://www.mongodb.com/)
+    * MongoDB was the chosen database for this website.
+* [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
+    * MongoDB Atlas was the cloud database service used to host the database.
+
+[Back to top ⇧](#table-of-contents)
+
+# Testing 
+
+# Deployment
+To further improve upon this project, a clone cna be made using the following steps
+
+## 1. Database Creation
+The application is connected to a [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) cluster. A database can be created usign the following steps.
+
+1. Log into [MongoDB](https://www.mongodb.com/) 
+2. Locate and select the **New Project** button on the right side of the page, and give your project a name.
+3. Locate and select the **Create a New Cluster** button on the right side of the page.
+    * Choose the free **Shared Cluster** optiuon
+    * Select a Regiona and Clous Provider (in my case: AWS and Ireland)
+    * Select the Cluster tier and select the option best suited for you (for this project the Basic M0 Tier)
+    * Click on the Cluster Name and create a cluster name
+4. Select the Database Acess on the left side of the page. Once Selected click Add New Database User:
+    * Choose Password for the Authentication Method
+    * Enter a username and password of your choosing
+    * Select the Read and Write to any database option in the Database User Privilage.
+    * Add User
+
+5. Select the Network Access under the Database Acess on the left side of the page. Then click on the Add Ip Adress: 
+    * Select Allow Acess from anywhere
+
+6. Locate and select the Clusters on the left side.
+
+7. Click collections, then Create Database on the left side of the page to start adding documents to your database collections:
+    * Enter Chosen DB name
+    * Enter Collection Name
+    * Select create
+
+8. Click Create Collection and create the necessary collections.
+
+## Local Copy Creation
+A clone of the repository can be done it two ways:
+
+* Forking the Repository
+    * By forking the github repository we make a copy of the original repository on out Github account to view and make changes without affecting the original and here's how to do it:
+        * Log into [GitHub](https://github.com/))   
+        * Find the GitHub Repository
+        * At the top right side of the page select **"Fork"**.
+        * A copy of the original repository will be added into your account. 
+
+## Creating a Clone
+
+How to run this project locally:
+
+1. Install the [GitPod Browser](https://www.gitpod.io/docs/browser-extension/) Extension for Chrome.
+2. Restart your browser after downloading
+3. Log into [GitHub](https://github.com/)
+4. Locate the repository.
+5. CLick the gree "GitPod" button to open the workspace.
+
+## Heroku App Creation
+The website requires back-end technology, including a server, application and database.
+
+* Using the Herokue Command Line Interface
+* Connect to the GitHub Repository
+
+Before deployment, certain steps have to be accomplished first.
+
+1. Create a requirements file to install requirements. In the terminal window type: 
+
+pip3 install -r requirements.txt
+
+2. Create a Procfile so that Heroku knows which file runs the app. In the terminal window type:
+
+echo web: python app.py > Procfile
+
+3. Push the two files to the repository
+**Do Not Use Source Control**
+
+git add requirements.txt
+git commit -m "Add requirements.txt"
+
+git add Procfile 
+git commit -m "Add Procfile"
+
+git push
+
+Once that's done:
+
+1. Log into [Heroku](https://id.heroku.com/login)
+2. Select the New Button and choose Create New App. Give your app a name and set the region (this project: Europe) and Create App
+3. Go to the Deploy tab and select Connect to GitHub
+4. Search for the repository name (make sure it's spelled correctly). Then click Connect
+5. Go to Settings and select Reveal Config Vars:
+    * IP : 0.0.0.0
+    * PORT : 5000
+    * SECRET_KEY : (your secret key)
+    * MONGO_URI : mongodb+srv://<username>:<password>@<cluster_name>-ocous.mongodb.net/<database_name>?retryWrites=true&w=majority
+    * MONGO_DBNAME : (your mongodbname)
+6. Go back to the deploy tab and scroll down to Automatic Deploys.
+7. Ensure the master branch is selected by selecting View App
+
+Heroku will Recieve the pushed code from GitHub and Host the application
+
+[Back to top ⇧](#table-of-contents)
 
 
-* []()
-* []()
-* []()
-* []()
-* []()
+The developer consulted mulptiple sites so better understand the code implemented in the design.
 
+Both The Code Institute Flask Project and The Task Manager Mini Project were used as reference to develop the many features implemented. The developer customized the code to better fit the website.
 
+The Developer consulted various websites when encountering a problem:
 
+[Stack Overflow](https://stackoverflow.com/)
 
+[W3Schools](https://www.w3schools.com/)
 
+[Boostrap](https://getbootstrap.com/)
 
+[One Piece Information](https://onepiece.fandom.com/wiki/One_Piece_Wiki)
+
+[The Theories](https://www.reddit.com/)
+
+[Images](https://www.google.com/imghp?hl=EN)
+
+[Youtube for a few troubleshooting problems](https://www.youtube.com/)
+
+[Back to top ⇧](#table-of-contents)
+
+# Acknowledgements
+
+The developer would like to thanks the following:
+
+* Tim Nelson, for the great lesson and walkthrough videos in the projects
+
+* Their Mentor Seun, for her great advice and great help and ideas.
+
+* Their fmaily and friends, for providing an enourmous amount of patience and understanding aswell as being extremelly supporting throughout the whole process.
