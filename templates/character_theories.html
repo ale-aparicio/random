@@ -10,11 +10,19 @@
         </div>
         <div class="row">
             <div class="col-md-5 sections">
-                <a href="{{ url_for('add_theories') }}">
-                    <button type="submit" onclick="" class="box create-btn">
-                        <h5 class="box-text create-btn-title">Create Theory</h5>
-                    </button>
-                </a>
+                {% if session.user %}
+                    <a href="{{ url_for('add_theories') }}">
+                        <button type="submit" onclick="" class="box create-btn">
+                            <h5 class="box-text create-btn-title">Create Theory</h5>
+                        </button>
+                    </a>
+                {% else %}
+                    <a href="{{ url_for('login') }}">
+                        <button type="submit" onclick="" class="box create-btn">
+                            <h5 class="box-text create-btn-title">Create Theory</h5>
+                        </button>
+                    </a>
+                {% endif %}
             </div>
         </div>
         <br>
