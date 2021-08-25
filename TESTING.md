@@ -10,8 +10,8 @@
 
 1. [Testing User Theories](#Testing-User-Theories)
 2. [Manual Testing](#Manual-Testing)
-    1.[Common Element Testing](#Common-Element-Testing)
-    2.[Page Elements Testing](#Page-Element-Testing)
+    1. [Common Element Testing](#Common-Element-Testing)
+    2. [Page Elements Testing](#Page-Element-Testing)
 3. [Automated Testing](#Automated-Testing)
     1. [Code Validation]()
     2. [Browser Validation]()
