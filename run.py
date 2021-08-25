@@ -253,7 +253,7 @@ def edit_theories(theory_id):
             "created_by": session["user"]
         }
         # Edit a theory linked to the world_theory category
-         # Edit a theory linked to the world_theory category
+        # Edit a theory linked to the world_theory category
         if category_name == "world theories":
             mongo.db.world.update({"_id": ObjectId(theory_id)}, theory_edit)
             flash("World Theory Sucessfully Updated")

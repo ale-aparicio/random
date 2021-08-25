@@ -23,7 +23,7 @@ The inspiration for the website came from the countless theories roaming around 
     2. [Tools](#Tools)
     3. [Libraries](#Libraries)
     4. [Database Management](#Database-Management)
-6. [Testing](#Testing)
+6. [Testing](#Testing) ----> [Testing File](TESTING.md)
 7. [Deployment](#Deployment)
     1. [Database Creation](#Database-Creation)
     2. [Local Copy Creation](#Local-Copy-Creation)
@@ -319,6 +319,8 @@ Each page of the website is fully responsive and has an adaptable navbar so it c
 [Back to top ⇧](#table-of-contents)
 
 # Testing 
+
+[Testing File](TESTING.md) ------> [Testing File](TESTING.md)
 
 # Deployment
 To further improve upon this project, a clone cna be made using the following steps
