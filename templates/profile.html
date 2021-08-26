@@ -1,47 +1,52 @@
 {% extends "base.html" %}
 {% block content %}
+
     <div class="bg-page register">
         <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-8">
-                <div class="card box" style=" width: 100%;">
-                    <div class="card-body register-card">
-                        <h5 class="card-title box-text t-center">{{ username }}'s Profile</h5>
-                    </div>
-                    <div>
-                        {% if session.user|lower == created_by|lower %}
-                            {% for world in worlds %}
-                                <div id="accordion">
-                                    <div class="col-12 card box">
-                                    <div class="card-header" id="headingOne">
-                                        <h5 class="mb-0">
-                                        <button class="btn btn-link collapsed box-text theory-title" data-toggle="collapse" data-target="#{{ world._id }}" aria-expanded="false" aria-controls="collapseTwo">
-                                            {{ world.title }}
-                                        </button>
-                                        {% if session.user|lower == world.created_by|lower %}
-                                            <a href="{{ url_for('edit_theories', theory_id=content._id) }}" class="box-text theory-btn edit-btn"><i class="fas fa-edit"></i></a>
-                                            <a href="{{ url_for('delete_theories', theory_id=world._id) }}" class="box-text theory-btn delete-btn"><i class="fas fa-trash-alt"></i></a>
-                                        {% endif %}
-                                        </h5>
-                                    </div>
-                                    <div id="{{ world._id }}" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                                        <div class="card-body box-text theory-desc">
-                                        {{ world.created_by }}<br>
-                                        <br>
-                                        {{ world.content }}<br>
-                                        </div>
-                                    </div>
-                                </div>
-                            {% endfor %}
-                        {% else %}
-                            <label class="box-text" for="content">
-                                <h2>You have not created any theories</h2>
-                            </label>
-                        {% endif %}
-                    </div>
+            <div class="card box" style=" width: 100%;">
+                <div class="card-body register-card">
+                    <h1 class="col-12 page-title">{{ username }}'s Profile</h1>
                 </div>
             </div>
-            <div class="col-md-2"></div>
+            <div>
+                {% if session.user|lower == created_by|lower %}
+                    {% for original in originals %}
+                        <div id="accordion">
+                            <div class="col-12 card box">
+                                <div class="card-header" id="headingOne">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link collapsed box-text theory-title" data-toggle="collapse"
+                                            data-target="#{{ original._id }}" aria-expanded="false" aria-controls="collapseTwo">
+                                            {{ original.title }}
+                                        </button>
+                                        <a href="{{ url_for('edit_theories', theory_id=original._id) }}"
+                                            class="box-text theory-btn edit-btn"><i class="fas fa-edit"></i>
+                                        </a>
+                                        <a href="{{ url_for('delete_theories', theory_id=original._id) }}"
+                                            class="box-text theory-btn delete-btn"><i class="fas fa-trash-alt"></i>
+                                        </a>
+                                    </h5>
+                                </div>
+                                <div id="{{ original._id }}" class="collapse" aria-labelledby="headingTwo"
+                                    data-parent="#accordion">
+                                    <div class="card-body box-text theory-desc">
+                                        {{ original.created_by }}<br>
+                                        <br>
+                                        {{ original.content }}<br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <br>
+                    <label class="box-text" for="content">
+                        <h2>You have not created any theories</h2>
+                    </label>
+                {% endif %}
+                
+            </div>
         </div>
     </div>
+
 {% endblock %}

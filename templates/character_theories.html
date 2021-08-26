@@ -27,31 +27,36 @@
         </div>
         <br>
         {% for character in characters %}
-            <div id="accordion">
+            {% if character.category == "Character Theory" %}
+                <div id="accordion">
                     <div class="col-12 card box">
-                    <div class="card-header" id="headingOne">
-                        <h5 class="mb-0">
-                        <button class="btn btn-link collapsed box-text theory-title" data-toggle="collapse" data-target="#{{ character._id }}" aria-expanded="false" aria-controls="collapseTwo">
-                            {{ character.title }}
-                        </button>
-                        {% if session.user|lower == character.created_by|lower %}
-                            <a href="{{ url_for('edit_theories', theory_id=character._id) }}" class="box-text theory-btn edit-btn"><i class="fas fa-edit"></i></a>
-                            <a href="{{ url_for('delete_theories', theory_id=character._id) }}" class="box-text theory-btn delete-btn"><i class="fas fa-trash-alt"></i></a>
-                        {% endif %}
-                        </h5>
-                    </div>
-                    <div id="{{ character._id }}" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                        <div class="card-body box-text theory-desc">
-                        {{ character.created_by }}<br>
-                        <br>
-                        {{ character.content }}<br>
+                        <div class="card-header" id="headingOne">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed box-text theory-title" data-toggle="collapse"
+                                    data-target="#{{ character._id }}" aria-expanded="false" aria-controls="collapseTwo">
+                                    {{ character.title }}
+                                </button>
+                                {% if session.user|lower == character.created_by|lower %}
+                                <a href="{{ url_for('edit_theories', theory_id=character._id, category='character') }}"
+                                    class="box-text theory-btn edit-btn"><i class="fas fa-edit"></i></a>
+                                <a href="{{ url_for('delete_theories', theory_id=character._id) }}"
+                                    class="box-text theory-btn delete-btn"><i class="fas fa-trash-alt"></i></a>
+                                {% endif %}
+                            </h5>
+                        </div>
+                        <div id="{{ character._id }}" class="collapse" aria-labelledby="headingTwo"
+                            data-parent="#accordion">
+                            <div class="card-body box-text theory-desc">
+                                {{ character.created_by }}<br>
+                                <br>
+                                {{ character.content }}<br>
+                            </div>
                         </div>
                     </div>
-                    </div>
-            </div>
-            <br>
+                </div>
+                <br>
+            {% endif %}
         {% endfor %}
-        
     </div>
 
 {% endblock %}

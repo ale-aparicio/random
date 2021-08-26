@@ -27,29 +27,31 @@
         </div>
         <br>
         {% for fruit in fruits %}
-            <div id="accordion">
-                    <div class="col-12 card box">
-                    <div class="card-header" id="headingOne">
-                        <h5 class="mb-0">
-                        <button class="btn btn-link collapsed box-text theory-title" data-toggle="collapse" data-target="#{{ fruit._id }}" aria-expanded="false" aria-controls="collapseTwo">
-                            {{ fruit.title }}
-                        </button>
-                        {% if session.user|lower == fruit.created_by|lower %}
-                            <a href="{{ url_for('edit_theories', theory_id=fruit._id) }}" class="box-text theory-btn edit-btn"><i class="fas fa-edit"></i></a>
-                            <a href="{{ url_for('delete_theories', theory_id=fruit._id) }}" class="box-text theory-btn delete-btn"><i class="fas fa-trash-alt"></i></a>
-                        {% endif %}
-                        </h5>
-                    </div>
-                    <div id="{{ fruit._id }}" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                        <div class="card-body box-text theory-desc">
-                        {{ fruit.created_by }}<br>
-                        <br>
-                        {{ fruit.content }}<br>
+            {% if fruit.category == "Devil Fruit Theory" %}
+                <div id="accordion">
+                        <div class="col-12 card box">
+                        <div class="card-header" id="headingOne">
+                            <h5 class="mb-0">
+                            <button class="btn btn-link collapsed box-text theory-title" data-toggle="collapse" data-target="#{{ fruit._id }}" aria-expanded="false" aria-controls="collapseTwo">
+                                {{ fruit.title }}
+                            </button>
+                            {% if session.user|lower == fruit.created_by|lower %}
+                                <a href="{{ url_for('edit_theories', theory_id=fruit._id, category='fruit') }}" class="box-text theory-btn edit-btn"><i class="fas fa-edit"></i></a>
+                                <a href="{{ url_for('delete_theories', theory_id=fruit._id) }}" class="box-text theory-btn delete-btn"><i class="fas fa-trash-alt"></i></a>
+                            {% endif %}
+                            </h5>
                         </div>
-                    </div>
-                    </div>
-            </div>
-            <br>
+                        <div id="{{ fruit._id }}" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                            <div class="card-body box-text theory-desc">
+                            {{ fruit.created_by }}<br>
+                            <br>
+                            {{ fruit.content }}<br>
+                            </div>
+                        </div>
+                        </div>
+                </div>
+                <br>
+            {% endif %}
         {% endfor %}
         
     </div>

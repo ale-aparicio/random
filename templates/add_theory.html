@@ -13,9 +13,10 @@
           <div class="form-group">
             <label class="box-text" for="categories"><h2>Categories</h2></label>
             <small id="emailHelp" class="form-text box-text">Please Choose a category that best fits your theory</small>
-            <select class="form-control validate forms" id="category_name" name="category_name">
-              {% for theory in theories %}
-                <option value="{{ theory.title }}">{{ theory.title }}</option>
+            <select class="form-control validate forms" id="category" name="category" required>
+              <option value="" disabled selected>Choose Category</option>
+              {% for category in categories %}
+                <option value="{{ category.category }}">{{ category.category }}</option>
               {% endfor %}
             </select>
           </div>
@@ -33,8 +34,6 @@
             <small id="emailHelp" class="form-text box-text">Please make sure you are signed in before uploading a theory</small>
           <button type="submit" class="box box-text create-btn create-btn-title col-md-4" name="submit_theory"><h2>Create</h2></button>
         </form>
-    
-    
       </div>
       <div class="col-md-2"></div>
     </div>

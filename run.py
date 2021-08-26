@@ -92,14 +92,19 @@ def login():
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
-    # grab the session user's username from db
+    # Get the session's username from database
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
 
     if session["user"]:
         return render_template("profile.html", username=username)
 
-    return render_template("profile.html", username=username)
+    originals = mongo.db.theories.find()
+    return render_template(
+        "profile.html",
+        username=username,
+        originals=originals
+    )
 
 
 @app.route("/logout")
@@ -130,7 +135,7 @@ def theories():
 
 @app.route("/world_theories")
 def world_theories():
-    worlds = mongo.db.world.find()
+    worlds = mongo.db.theories.find()
     return render_template(
         "world_theories.html",
         page_title="World Theories",
@@ -140,7 +145,7 @@ def world_theories():
 
 @app.route("/character_theories")
 def character_theories():
-    characters = mongo.db.character.find()
+    characters = mongo.db.theories.find()
     return render_template(
         "character_theories.html",
         page_title="Character Theories",
@@ -150,7 +155,7 @@ def character_theories():
 
 @app.route("/fruit_theories")
 def fruit_theories():
-    fruits = mongo.db.fruit.find()
+    fruits = mongo.db.theories.find()
     return render_template(
         "fruit_theories.html",
         page_title="Fruit Theories",
@@ -160,7 +165,7 @@ def fruit_theories():
 
 @app.route("/story_theories")
 def story_theories():
-    stories = mongo.db.story.find()
+    stories = mongo.db.theories.find()
     return render_template(
         "story_theories.html",
         page_title="Story Theories",
@@ -170,7 +175,7 @@ def story_theories():
 
 @app.route("/crew_theories")
 def crew_theories():
-    crews = mongo.db.crew.find()
+    crews = mongo.db.theories.find()
     return render_template(
         "crew_theories.html",
         page_title="Crew Theories",
@@ -180,7 +185,7 @@ def crew_theories():
 
 @app.route("/misc_theories")
 def misc_theories():
-    miscs = mongo.db.misc.find()
+    miscs = mongo.db.theories.find()
     return render_template(
         "misc_theories.html",
         page_title="Mischellaneous Theories",
@@ -194,50 +199,22 @@ def misc_theories():
 @app.route("/add_theories", methods=["GET", "POST"])
 def add_theories():
     if request.method == "POST":
-        category_name = request.form.get('category_name').lower()
         theory = {
-                "title": request.form.get("title"),
-                "content": request.form.get("content"),
-                "created_by": session["user"]
-            }
-        if category_name == "world theories":
-            # Insert a theory linked to the world_theory category
-            mongo.db.world.insert_one(theory)
-            flash("Theory Sucessfully Added")
-            return redirect(url_for("world_theories"))
-        elif category_name == "character theories":
-            # Insert a theory linked to the character_theory category
-            mongo.db.character.insert_one(theory)
-            flash("Theory Sucessfully Added")
-            return redirect(url_for("character_theories"))
-        elif category_name == "devil fruit theories":
-            # Insert a theory linked to the fruit_theory category
-            mongo.db.fruit.insert_one(theory)
-            flash("Theory Sucessfully Added")
-            return redirect(url_for("fruit_theories"))
-        elif category_name == "story theories":
-            # Insert a theory linked to the story_theory category
-            mongo.db.story.insert_one(theory)
-            flash("Theory Sucessfully Added")
-            return redirect(url_for("story_theories"))
-        elif category_name == "crew theories":
-            # Insert a theory linked to the crew_theory category
-            mongo.db.crew.insert_one(theory)
-            flash("Theory Sucessfully Added")
-            return redirect(url_for("crew_theories"))
-        elif category_name == "mischellaneous theories":
-            # Insert a theory linked to the misc_theory category
-            mongo.db.misc.insert_one(theory)
-            flash("Theory Sucessfully Added")
-            return redirect(url_for("misc_theories"))
+            "category": request.form.get("category"),
+            "title": request.form.get("title"),
+            "created_by": session["user"],
+            "content": request.form.get("content")
+        }
+        mongo.db.theories.insert_one(theory)
+        flash("Theory Sucessfully Added")
+        return redirect(url_for("theories"))
 
+    categories = mongo.db.categories.find().sort("category", 1)
     # Route for the categories selection into the theories.json
-    data = []
-    with open("data/theories.json", "r") as json_data:
-        data = json.load(json_data)
     return render_template(
         "add_theory.html", page_title="Create a Theory",
-        theories=data)
+        categories=categories
+        )
 
 
 # Function to edit a theory
@@ -246,74 +223,32 @@ def add_theories():
 @app.route("/edit_theories/<theory_id>", methods=["GET", "POST"])
 def edit_theories(theory_id):
     if request.method == "POST":
-        category_name = request.form.get('category_name').lower()
-        theory_edit = {
+        submit = {
+            "category": request.form.get("category"),
             "title": request.form.get("title"),
-            "content": request.form.get("content"),
-            "created_by": session["user"]
+            "created_by": session["user"],
+            "content": request.form.get("content")
         }
-        # Edit a theory linked to the world_theory category
-        # Edit a theory linked to the world_theory category
-        if category_name == "world theories":
-            mongo.db.world.update({"_id": ObjectId(theory_id)}, theory_edit)
-            flash("World Theory Sucessfully Updated")
-            return redirect(url_for("character_theories"))
-        # Insert a theory linked to the character_theory category
-        elif category_name == "character theories":
-            mongo.db.character.update({
-                "_id": ObjectId(theory_id)},
-                theory_edit)
-            flash("Character Theory Sucessfully Updated")
-            return redirect(url_for("character_theories"))
-        # Edit a theory linked to the fruit_theory category
-        elif category_name == "devil fruit theories":
-            mongo.db.fruit.update({
-                "_id": ObjectId(theory_id)},
-                theory_edit)
-            flash("Fruit Theory Sucessfully Updated")
-            return redirect(url_for("fruit_theories"))
-        # Edit a theory linked to the story_theory category
-        elif category_name == "story theories":
-            mongo.db.story.update({
-                "_id": ObjectId(theory_id)},
-                theory_edit)
-        # Edit a theory linked to the crew_theory category
-        elif category_name == "crew theories":
-            mongo.db.crew.update({
-                "_id": ObjectId(theory_id)},
-                theory_edit)
-        # Edit a theory linked to the misc_theory category
-        elif category_name == "mischellaneous theories":
-            mongo.db.misc.update({
-                "_id": ObjectId(theory_id)},
-                theory_edit)
+        mongo.db.theories.update({"_id": ObjectId(theory_id)}, submit)
+        flash("Theory Successfully Updated")
+        return redirect(url_for("theories"))
 
-    content = mongo.db.world.find_one({"_id": ObjectId(theory_id)})
-    #content = mongo.db.character.find_one({"_id": ObjectId(theory_id)})
-    #content = mongo.db.fruit.find_one({"_id": ObjectId(theory_id)})
-    #content = mongo.db.story.find_one({"_id": ObjectId(theory_id)})
-    #content = mongo.db.crew.find_one({"_id": ObjectId(theory_id)})
-    #content = mongo.db.misc.find_one({"_id": ObjectId(theory_id)})
-    # Route for the categories selection into the theories.json
-    data = []
-    with open("data/theories.json", "r") as json_data:
-        data = json.load(json_data)
+    content = mongo.db.theories.find_one({"_id": ObjectId(theory_id)})
+    categories = mongo.db.categories.find().sort("category", 1)
     return render_template(
         "edit_theory.html",
         page_title="Edit a Theory",
         content=content,
-        theories=data
+        categories=categories
     )
+
+
+# Function to delete a theory
 
 
 @app.route("/delete_theories/<theory_id>")
 def delete_theories(theory_id):
-    mongo.db.world.remove({"_id": ObjectId(theory_id)})
-    mongo.db.character.remove({"_id": ObjectId(theory_id)})
-    mongo.db.fruit.remove({"_id": ObjectId(theory_id)})
-    mongo.db.story.remove({"_id": ObjectId(theory_id)})
-    mongo.db.crew.remove({"_id": ObjectId(theory_id)})
-    mongo.db.misc.remove({"_id": ObjectId(theory_id)})
+    mongo.db.theories.remove({"_id": ObjectId(theory_id)})
     flash("Theory Successfully Deleted")
     return redirect(url_for("theories"))
 

@@ -8,6 +8,17 @@
       <div class="col-md-2"></div>
       <div class="col-md-8 box register-card">
         <form method="POST" action="{{ url_for('edit_theories', theory_id=content._id) }}">
+          <!---Categories Selection-->
+          <div class="form-group">
+            <label class="box-text" for="categories"><h2>Categories</h2></label>
+            <small id="emailHelp" class="form-text box-text">Please Choose a category that best fits your theory</small>
+            <select class="form-control validate forms" id="category" name="category" required>
+              <option value="" disabled selected>Choose Category</option>
+              {% for category in categories %}
+                <option value="{{ category.category }}">{{ category.category }}</option>
+              {% endfor %}
+            </select>
+          </div>
           <!---Title Input-->
           <div class="form-group">
             <label class="box-text" for="title">
