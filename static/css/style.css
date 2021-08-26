@@ -31,6 +31,7 @@ li {
 }
 .bg-page-main{
     background-color: #A1E4F9;
+    min-height: 80vh;
 }
 
 .bg-page{
@@ -69,6 +70,15 @@ ul {
 
 .btn{
     white-space: inherit;
+}
+
+h3.box-text {
+    text-align: center;
+    font-size: 4vh;
+}
+
+.m-10{
+    margin: 10px;
 }
 /* ----------------Heading -------------*/
 .bg-color-navbar {

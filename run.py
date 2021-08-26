@@ -97,9 +97,13 @@ def profile(username):
         {"username": session["user"]})["username"]
 
     if session["user"]:
-        return render_template("profile.html", username=username)
+        originals = mongo.db.theories.find()
+        return render_template(
+            "profile.html",
+            username=username,
+            originals=originals
+        )
 
-    originals = mongo.db.theories.find()
     return render_template(
         "profile.html",
         username=username,
